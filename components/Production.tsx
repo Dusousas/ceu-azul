@@ -35,7 +35,7 @@ export default function Production() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-AzulP/95 pointer-events-none" />
 
-        <div className="maxW relative flex items-center z-10 text-white gap-20">
+        <div className="maxW relative flex flex-col items-center z-10 text-white gap-20 lg:flex-row">
           {/* LEFT TEXT */}
           <article className="lg:w-1/2">
             <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
@@ -65,7 +65,7 @@ export default function Production() {
           </article>
 
           {/* PROGRESSOS */}
-          <article className="lg:w-1/2 space-y-5">
+          <article className="w-full lg:w-1/2 space-y-5">
             {progressData.map((item) => (
               <ProgressBar
                 key={item.label}

@@ -33,9 +33,9 @@ export default function About() {
             Lorem ipsum dolor sit amet consectetur adipisicing.
           </h2>
 
-          <article className="mt-14 flex">
+          <article className="mt-14 flex flex-col lg:flex-row">
             {cards.map((card, index) => (
-              <div key={index} className="border border-gray-100 w-1/4 py-10 px-8 bg-white">
+              <div key={index} className="border border-gray-100 lg:w-1/4 py-10 px-8 bg-white">
                 <img className="w-[70px]" src={card.icon} alt={card.title} />
                 <h2 className="font-Jost text-GrayP font-medium text-lg mt-4">
                   {card.title}
@@ -45,8 +45,8 @@ export default function About() {
             ))}
           </article>
 
-          <article className="mt-14 flex">
-            <div className="w-[40%]">
+          <article className="mt-14 flex flex-col lg:flex-row">
+            <div className="lg:w-[40%]">
               <img
                 className=""
                 src="/pexels-fabian-wiktor-3466355.jpg"
@@ -54,7 +54,7 @@ export default function About() {
               />
             </div>
 
-            <div className="w-[60%] bg-AzulP p-20">
+            <div className="lg:w-[60%] bg-AzulP p-20">
               <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
                 Quem somos?
               </p>
@@ -65,7 +65,7 @@ export default function About() {
               <p className="font-Jost text-white mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate soluta expedita? Possimus iure, placeat magni, nisi illum adipisci tempore neque temporibus culpa voluptas totam sit libero reiciendis, hic eaque.</p>
               <div className="border border-AzulC mx-auto w-[200px] mt-8 lg:mx-0" />
 
-              <div className="flex gap-16 mt-20">
+              <div className="flex flex-col gap-16 mt-20 lg:flex-row">
                 <div className="">
                   <h3 className="font-Barlow text-8xl font-semibold text-AzulC">
                     25
