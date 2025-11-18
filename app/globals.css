@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-title: var(--font-barlow-condensed);
+  --font-body: var(--font-jost);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-Barlow: var(--font-barlow-condensed);
+  --font-Jost: var(--font-jost);
+
+  --color-AzulP: #0E2A47;
+  --color-AzulS: #1D4E89;
+  --color-hoverAzul:#2A6FB5;
+  --color-AzulC:#8BD5FF;
+
+  --color-GrayP:#373737;
+
+  --color-Orange:#B55A30;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.maxW {
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+
+.bgMain1{
+  background-image: url('/pattern-bg-1.png');
+  background-size: cover;
+}
+
+.bgMain{
+  background-image: url('/pexels-fabian-wiktor-3466355.jpg');
+  background-size: cover;
+}
+
+.bgProduction{
+  background-image: url('/world.png');
+  background-size: cover;
+}
+

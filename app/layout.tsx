@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow_Condensed, Jost } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"], // ajuste se quiser menos
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jost = Jost({
+  variable: "--font-jost",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"], // idem aqui
 });
 
 export const metadata: Metadata = {
@@ -23,11 +28,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${barlowCondensed.variable} ${jost.variable} antialiased`}
       >
-        {children}
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
