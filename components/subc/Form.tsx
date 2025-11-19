@@ -3,8 +3,8 @@ import React from "react";
 export default function Form() {
   return (
     <>
-      <form className="">
-        <div className="flex justify-center gap-10">
+      <form className="w-full">
+        <div className="flex flex-col justify-center gap-10">
           <div className="flex flex-col w-full">
             <label className="font-Jost" htmlFor="">
               Seu nome
@@ -19,7 +19,7 @@ export default function Form() {
           </div>
         </div>
 
-        <div className="flex justify-center gap-10 mt-4">
+        <div className="flex flex-col justify-center gap-10 mt-4">
           <div className="flex flex-col w-full">
             <label className="font-Jost" htmlFor="">
               Seu Email
