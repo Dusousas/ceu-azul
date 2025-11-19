@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Logos from "@/components/Logos";
 import Main from "@/components/Main";
 import Production from "@/components/Production";
@@ -13,6 +14,7 @@ export default function Home() {
       <Logos />
       <Production />
       <Testimonials />
+      <Contact /> 
     </>
   );
 }

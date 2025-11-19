@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "./subc/Navbar";
 
 export default function Header() {
