@@ -20,6 +20,7 @@ export default function About() {
       title: "Processamento de toras",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum porro molestiae, impedit numquam cumque.",
     },
+    
   ];
 
   return (
@@ -27,15 +28,36 @@ export default function About() {
       <section id="about" className="pt-20 bg-[#FCFCFC]">
         <div className="maxW">
           <p className="font-Jost uppercase tracking-wider font-medium text-AzulS">
-            Quem somos?
+            Nossa história vem de família
           </p>
           <h2 className="font-Barlow uppercase font-bold text-GrayP mt-2 lg:max-w-[600px] lg:text-5xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing.
+            Tradição e Inovação no Mercado Madeireiro
           </h2>
+
+          <p className="font-Jost mt-2 text-base sm:text-lg lg:w-[75%] text-GrayP">
+            Bem-vindo à nossa serraria Céu Azul, uma empresa que iniciou suas
+            atividades em setembro de 2023 com o objetivo de trazer qualidade e
+            inovação ao setor madeireiro. Apesar de sermos novos no mercado,
+            nossa história está enraizada na tradição e na experiência de um
+            grupo investidor com mais de 20 anos de conhecimento e atuação no
+            mercado madeireiro.
+          </p>
+
+          <div className="mt-4 flex">
+            <a
+              className="uppercase tracking-wider text-white font-Jost bg-AzulS hover:bg-hoverAzul hover:text-AzulP py-4 px-6"
+              href="/nossa-historia"
+            >
+              Conheça nossa história
+            </a>
+          </div>
 
           <article className="mt-14 flex flex-col lg:flex-row">
             {cards.map((card, index) => (
-              <div key={index} className="border border-gray-100 lg:w-1/4 py-10 px-8 bg-white">
+              <div
+                key={index}
+                className="border border-gray-100 lg:w-1/4 py-10 px-8 bg-white"
+              >
                 <img className="w-[70px]" src={card.icon} alt={card.title} />
                 <h2 className="font-Jost text-GrayP font-medium text-lg mt-4">
                   {card.title}
@@ -56,13 +78,18 @@ export default function About() {
 
             <div className="lg:w-[60%] bg-AzulP p-20">
               <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
-                Quem somos?
+                Bem-vindo
               </p>
               <h2 className="font-Barlow mt-4 uppercase font-bold text-white mt-2 lg:max-w-[600px] lg:text-5xl">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Temporibus, autem?
               </h2>
-              <p className="font-Jost text-white mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate soluta expedita? Possimus iure, placeat magni, nisi illum adipisci tempore neque temporibus culpa voluptas totam sit libero reiciendis, hic eaque.</p>
+              <p className="font-Jost text-white mt-8">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+                voluptate soluta expedita? Possimus iure, placeat magni, nisi
+                illum adipisci tempore neque temporibus culpa voluptas totam sit
+                libero reiciendis, hic eaque.
+              </p>
               <div className="border border-AzulC mx-auto w-[200px] mt-8 lg:mx-0" />
 
               <div className="flex flex-col gap-16 mt-20 lg:flex-row">
