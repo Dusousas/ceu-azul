@@ -1,27 +1,80 @@
+"use client";
+
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+type Card = {
+  icon: string;
+  title: string;
+  text: string;
+  topics: string[];
+};
+
 export default function About() {
-  const cards = [
+  const cards: Card[] = [
     {
       icon: "/icons/005-logs.png",
-      title: "Colheita de madeira",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dignissimos numquam quis nemo laborum laudantium corporis animi et aliquam. Dolores!",
+      title: "Madeira para Pallets",
+      text: "Soluções em madeira para pallets com padrão técnico e produção sob demanda.",
+      topics: [
+        "Tipos e dimensões (padrão e sob medida)",
+        "Especificações técnicas conforme aplicação",
+        "Padronização para logística e indústria",
+      ],
     },
     {
       icon: "/icons/005-logs.png",
-      title: "Manejo florestal",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias praesentium reiciendis quaerat, obcaecati illum odit perspiciatis.",
+      title: "Madeiras Brutas e Beneficiadas",
+      text: "Variedade de espécies e opções de acabamento para diferentes usos.",
+      topics: [
+        "Pínus, eucalipto e outras opções",
+        "Bruta, beneficiada, aparelhada ou tratada",
+        "Aplicações e acabamentos conforme necessidade",
+      ],
     },
     {
       icon: "/icons/005-logs.png",
-      title: "Transporte especializado",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, commodi. Temporibus, maiores.",
+      title: "Madeira Serrada para Construção",
+      text: "Linha destinada à construção civil para mercado interno e externo.",
+      topics: [
+        "Cortes e bitolas para construção",
+        "Padrões para mercado interno e exportação",
+        "Seleção e controle de qualidade",
+      ],
     },
     {
       icon: "/icons/005-logs.png",
-      title: "Processamento de toras",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum porro molestiae, impedit numquam cumque.",
+      title: "Outros Produtos",
+      text: "Aproveitamento de resíduos com aplicações industriais e energéticas.",
+      topics: ["Cavacos", "Serragem", "Biomassa (quando disponível)"],
     },
-    
   ];
+
+  const hasSlider = cards.length > 3;
+
+  const CardItem = ({ card }: { card: Card }) => (
+    <div className="border border-gray-100 py-10 px-8 bg-white h-full">
+      <img className="w-[70px]" src={card.icon} alt={card.title} />
+      <h2 className="font-Jost text-GrayP font-medium text-lg mt-4">
+        {card.title}
+      </h2>
+      <p className="font-Jost mt-2 text-GrayP">{card.text}</p>
+
+      {/* Tópicos */}
+      <ul className="mt-4 space-y-2">
+        {card.topics.map((topic, i) => (
+          <li key={i} className="font-Jost text-GrayP text-sm flex gap-2">
+            <span className="text-AzulS mt-[1px]">•</span>
+            <span>{topic}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
   return (
     <>
@@ -30,6 +83,7 @@ export default function About() {
           <p className="font-Jost uppercase tracking-wider font-medium text-AzulS">
             Nossa história vem de família
           </p>
+
           <h2 className="font-Barlow uppercase font-bold text-GrayP mt-2 lg:max-w-[600px] lg:text-5xl">
             Tradição e Inovação no Mercado Madeireiro
           </h2>
@@ -52,50 +106,100 @@ export default function About() {
             </a>
           </div>
 
-          <article className="mt-14 flex flex-col lg:flex-row">
-            {cards.map((card, index) => (
-              <div
-                key={index}
-                className="border border-gray-100 lg:w-1/4 py-10 px-8 bg-white"
-              >
-                <img className="w-[70px]" src={card.icon} alt={card.title} />
-                <h2 className="font-Jost text-GrayP font-medium text-lg mt-4">
-                  {card.title}
-                </h2>
-                <p className="font-Jost mt-2 text-GrayP">{card.text}</p>
+          {/* Cards (se passar de 3 vira Swiper) */}
+          <article className="mt-14">
+            {!hasSlider ? (
+              <div className="flex flex-col lg:flex-row">
+                {cards.map((card, index) => (
+                  <div key={index} className="border border-gray-100 lg:w-1/4">
+                    <div className="py-10 px-8 bg-white h-full">
+                      <img
+                        className="w-[70px]"
+                        src={card.icon}
+                        alt={card.title}
+                      />
+                      <h2 className="font-Jost text-GrayP font-medium text-lg mt-4">
+                        {card.title}
+                      </h2>
+                      <p className="font-Jost mt-2 text-GrayP">{card.text}</p>
+
+                      <ul className="mt-4 space-y-2">
+                        {card.topics.map((topic, i) => (
+                          <li
+                            key={i}
+                            className="font-Jost text-GrayP text-sm flex gap-2"
+                          >
+                            <span className="text-AzulS mt-[1px]">•</span>
+                            <span>{topic}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <Swiper
+                modules={[Pagination]}
+                pagination={{ clickable: true }}
+                spaceBetween={16}
+                slidesPerView={1}
+                breakpoints={{
+                  640: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                }}
+                className="pb-12"
+              >
+                {cards.map((card, index) => (
+                  <SwiperSlide key={index}>
+                    <CardItem card={card} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
           </article>
 
+          {/* NOSSA missão (atualizado) */}
           <article className="mt-14 flex flex-col lg:flex-row">
             <div className="lg:w-[40%]">
               <img
                 className=""
                 src="/pexels-fabian-wiktor-3466355.jpg"
-                alt=""
+                alt="Sustentabilidade e produção responsável"
               />
             </div>
 
             <div className="lg:w-[60%] bg-AzulP p-20">
               <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
-                Bem-vindo
+                Missão, Visão e Valores da Céu Azul
               </p>
+
               <h2 className="font-Barlow mt-4 uppercase font-bold text-white mt-2 lg:max-w-[600px] lg:text-5xl">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Temporibus, autem?
+                Compromisso com Qualidade, Sustentabilidade e Ética
               </h2>
+
               <p className="font-Jost text-white mt-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                voluptate soluta expedita? Possimus iure, placeat magni, nisi
-                illum adipisci tempore neque temporibus culpa voluptas totam sit
-                libero reiciendis, hic eaque.
+                A Céu Azul atua com foco na excelência em produtos madeireiros,
+                aliando responsabilidade ambiental, ética e inovação em cada
+                etapa do seu trabalho. Guiada por valores sólidos e práticas
+                sustentáveis, a empresa busca construir relações transparentes e
+                duradouras, contribuindo para o desenvolvimento do setor
+                madeireiro e para um futuro mais consciente e sustentável.
               </p>
+              <div className="flex mt-4">
+                <a
+                  className="uppercase tracking-wider font-Jost text-white bg-Orange hover:bg-hoverAzul hover:text-AzulP py-4 px-6"
+                  href="/nossa-historia"
+                >
+                  Nossa missão
+                </a>
+              </div>
               <div className="border border-AzulC mx-auto w-[200px] mt-8 lg:mx-0" />
 
               <div className="flex flex-col gap-16 mt-20 lg:flex-row">
                 <div className="">
-                  <h3 className="font-Barlow text-8xl font-semibold text-AzulC">
-                    25
+                  <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
+                    20
                   </h3>
                   <p className="font-Jost text-white text-sm uppercase">
                     Anos de experiência
@@ -103,20 +207,20 @@ export default function About() {
                 </div>
 
                 <div className="">
-                  <h3 className="font-Barlow text-8xl font-semibold text-AzulC">
-                    25
+                  <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
+                    100%
                   </h3>
                   <p className="font-Jost text-sm text-white uppercase">
-                    Anos de experiência
+                    Excelência na entrega
                   </p>
                 </div>
 
                 <div className="">
-                  <h3 className="font-Barlow text-8xl font-semibold text-AzulC">
-                    25
+                  <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
+                    100%
                   </h3>
                   <p className="font-Jost text-white text-sm uppercase">
-                    Anos de experiência
+                    Respeito ao meio ambiente
                   </p>
                 </div>
               </div>
