@@ -6,19 +6,19 @@ export default function Navbar() {
       <nav className="hidden lg:block">
         <ul className="font-Jost font-medium text-white flex gap-4 uppercase tracking-wider">
           <li>
-            <a href="">Inicio</a>
+            <a href="#main">Inicio</a>
           </li>
           <li>
-            <a href="">Serviços</a>
+            <a href="#sobre-nos">Sobre Nós</a>
           </li>
           <li>
-            <a href="">Sobre nós</a>
+            <a href="#numeros">Nossos Números</a>
           </li>
           <li>
-            <a href="">Nossa missão</a>
+            <a href="#depoimentos">Depoimentos</a>
           </li>
           <li>
-            <a href="">Contato</a>
+            <a href="#contato">Contato</a>
           </li>
         </ul>
       </nav>

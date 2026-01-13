@@ -82,7 +82,7 @@ const allTestimonials = [...firstRow, ...secondRow];
 export default function Testimonials() {
   return (
     <>
-      <section className="py-20 bg-[#FCFCFC]">
+      <section id="depoimentos" className="py-20 bg-[#FCFCFC]">
         <div className="maxW">
           <p className="font-Jost uppercase tracking-wider font-medium text-AzulS">
             O que dizem de nós?

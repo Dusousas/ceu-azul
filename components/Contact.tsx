@@ -4,7 +4,7 @@ import Form from "./subc/Form";
 export default function Contact() {
   return (
     <>
-      <section className="w-full">
+      <section id="contato" className="w-full">
         <div className="flex flex-col w-full items-center lg:flex-row">
           <article className="py-20 w-full lg:w-1/2 px-4 lg:px-20">
             <p className="font-Jost uppercase tracking-wider font-medium text-center text-AzulP lg:text-left">

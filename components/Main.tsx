@@ -22,7 +22,7 @@ export default function Main() {
 
   return (
     <>
-      <section className="bg-AzulP relative lg:block">
+      <section id="main" className="bg-AzulP relative lg:block">
         <div className="h-full">
           <article className="h-full flex">
             <div className="h-full bgMain1 mt-20 flex flex-col justify-center px-2 py-10 lg:px-0 mt-28 lg:py-20 lg:pl-34 lg:w-1/2">

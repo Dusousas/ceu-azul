@@ -78,7 +78,7 @@ export default function About() {
 
   return (
     <>
-      <section id="about" className="pt-20 bg-[#FCFCFC]">
+      <section id="sobre-nos" className="pt-20 bg-[#FCFCFC]">
         <div className="maxW">
           <p className="font-Jost uppercase tracking-wider font-medium text-AzulS">
             Nossa história vem de família

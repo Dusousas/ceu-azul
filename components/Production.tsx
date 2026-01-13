@@ -109,7 +109,7 @@ function ProgressBar({ label, value, text }: ProgressItem) {
 export default function Production() {
   return (
     <>
-      <section className="py-30 bgProduction relative">
+      <section id="numeros" className="py-30 bgProduction relative">
         {/* Overlay */}
         <div className="absolute inset-0 bg-AzulP/95 pointer-events-none" />
 
