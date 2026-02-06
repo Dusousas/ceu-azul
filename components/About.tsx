@@ -64,7 +64,6 @@ export default function About() {
       </h2>
       <p className="font-Jost mt-2 text-GrayP">{card.text}</p>
 
-      {/* Tópicos */}
       <ul className="mt-4 space-y-2">
         {card.topics.map((topic, i) => (
           <li key={i} className="font-Jost text-GrayP text-sm flex gap-2">
@@ -81,20 +80,18 @@ export default function About() {
       <section id="sobre-nos" className="pt-20 bg-[#FCFCFC]">
         <div className="maxW">
           <p className="font-Jost uppercase tracking-wider font-medium text-AzulS">
-            Nossa história vem de família
+            Extraída com cuidado. Entregue com confiança.
           </p>
 
-          <h2 className="font-Barlow uppercase font-bold text-GrayP mt-2 lg:max-w-[600px] lg:text-5xl">
-            Tradição e Inovação no Mercado Madeireiro
+          <h2 className="font-Barlow uppercase font-bold text-GrayP mt-2 lg:max-w-[720px] lg:text-5xl">
+            Tradição, tecnologia e responsabilidade no processamento de madeira
           </h2>
 
-          <p className="font-Jost mt-2 text-base sm:text-lg lg:w-[75%] text-GrayP">
-            Bem-vindo à nossa serraria Céu Azul, uma empresa que iniciou suas
-            atividades em setembro de 2023 com o objetivo de trazer qualidade e
-            inovação ao setor madeireiro. Apesar de sermos novos no mercado,
-            nossa história está enraizada na tradição e na experiência de um
-            grupo investidor com mais de 20 anos de conhecimento e atuação no
-            mercado madeireiro.
+          <p className="font-Jost mt-2 text-base sm:text-lg lg:w-[80%] text-GrayP">
+            A Serraria Céu Azul une a força da tradição familiar à eficiência de
+            uma operação moderna e integrada, entregando madeira com
+            consistência, rastreabilidade e responsabilidade ambiental para
+            atender mercados exigentes no Brasil e no exterior.
           </p>
 
           <div className="mt-4 flex">
@@ -159,34 +156,32 @@ export default function About() {
             )}
           </article>
 
-          {/* NOSSA missão (atualizado) */}
+          {/* NOSSA MISSÃO (enxuto + link pra página detalhada) */}
           <article className="mt-14 flex flex-col lg:flex-row">
             <div className="lg:w-[40%]">
               <img
-                className=""
-                src="/pexels-fabian-wiktor-3466355.jpg"
+                src="/about.jpeg"
                 alt="Sustentabilidade e produção responsável"
               />
             </div>
 
-            <div className="lg:w-[60%] bg-AzulP p-20">
+            <div className="lg:w-[60%] bg-AzulP p-10 sm:p-14 lg:p-20">
               <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
-                Missão, Visão e Valores da Céu Azul
+                Missão, Visão e Valores
               </p>
 
-              <h2 className="font-Barlow mt-4 uppercase font-bold text-white mt-2 lg:max-w-[600px] lg:text-5xl">
-                Compromisso com Qualidade, Sustentabilidade e Ética
+              <h2 className="font-Barlow mt-4 uppercase font-bold text-white lg:max-w-[740px] lg:text-5xl">
+                Compromisso com qualidade, ética e sustentabilidade
               </h2>
 
-              <p className="font-Jost text-white mt-8">
-                A Céu Azul atua com foco na excelência em produtos madeireiros,
-                aliando responsabilidade ambiental, ética e inovação em cada
-                etapa do seu trabalho. Guiada por valores sólidos e práticas
-                sustentáveis, a empresa busca construir relações transparentes e
-                duradouras, contribuindo para o desenvolvimento do setor
-                madeireiro e para um futuro mais consciente e sustentável.
+              <p className="font-Jost text-white mt-6 leading-relaxed">
+                Nossa atuação é guiada por integridade, transparência e
+                eficiência operacional. Trabalhamos com origem controlada,
+                padronização e controle de qualidade para entregar produtos
+                consistentes — com responsabilidade ambiental em cada etapa.
               </p>
-              <div className="flex mt-4">
+
+              <div className="flex mt-6">
                 <a
                   className="uppercase tracking-wider font-Jost text-white bg-Orange hover:bg-hoverAzul hover:text-AzulP py-4 px-6"
                   href="/nossa-historia"
@@ -194,33 +189,35 @@ export default function About() {
                   Nossa missão
                 </a>
               </div>
+
               <div className="border border-AzulC mx-auto w-[200px] mt-8 lg:mx-0" />
 
-              <div className="flex flex-col gap-16 mt-20 lg:flex-row">
-                <div className="">
+              {/* números rápidos (enxutos e reais) */}
+              <div className="flex flex-col gap-12 mt-14 lg:flex-row lg:gap-16">
+                <div>
                   <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
-                    20
+                    30+
                   </h3>
                   <p className="font-Jost text-white text-sm uppercase">
-                    Anos de experiência
+                    Anos de experiência do grupo
                   </p>
                 </div>
 
-                <div className="">
+                <div>
                   <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
-                    100%
+                    350+
                   </h3>
                   <p className="font-Jost text-sm text-white uppercase">
-                    Excelência na entrega
+                    Colaboradores
                   </p>
                 </div>
 
-                <div className="">
+                <div>
                   <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
-                    100%
+                    10+
                   </h3>
                   <p className="font-Jost text-white text-sm uppercase">
-                    Respeito ao meio ambiente
+                    Países atendidos
                   </p>
                 </div>
               </div>

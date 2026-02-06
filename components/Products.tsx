@@ -4,8 +4,7 @@ const products = [
   {
     title: "Pallets e embalagens",
     desc: "Pallets para exportacao, one way e sob medida para logistica e industria.",
-    image:
-      "https://images.unsplash.com/photo-1511385348-a52b4a160dc2?auto=format&fit=crop&w=900&q=80",
+    image: "/servicos/pallets.jpeg",
     items: [
       "Padroes PBR, PBR leve e medidas especiais",
       "Madeira seca e controle de umidade para exportacao",
@@ -15,8 +14,7 @@ const products = [
   {
     title: "Madeira serrada",
     desc: "Pranchas, caibros, vigas e sarrafos cortados com padrao constante.",
-    image:
-      "https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=900&q=80",
+    image: "/servicos/madeira-serrada.jpeg",
     items: [
       "Pinus e eucalipto com rastreabilidade",
       "Bitolas constantes e cortes repetitivos",
@@ -26,8 +24,7 @@ const products = [
   {
     title: "Madeiras beneficiadas",
     desc: "Aparelhada, lixada ou tratada para uso direto em obras e moveis.",
-    image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80",
+    image: "/servicos/beneficiadas.jpeg",
     items: [
       "Cepilhada e aparelhada com acabamento fino",
       "Tratamento preventivo e impregnacao",
@@ -37,8 +34,7 @@ const products = [
   {
     title: "Caibros e vigas estruturais",
     desc: "Componentes para coberturas, galpoes leves e estruturas temporarias.",
-    image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80",
+    image: "/servicos/caibros.jpeg",
     items: [
       "Calculos de corte para minimizar desperdicio",
       "Bitolas indicadas para carga e vao",
@@ -48,8 +44,7 @@ const products = [
   {
     title: "Componentes para moveis",
     desc: "Sarrafos, paineis colados e pecas cortadas para producao moveleira.",
-    image:
-      "https://images.unsplash.com/photo-1503389156029-5a9c854d85f2?auto=format&fit=crop&w=900&q=80",
+    image: "/servicos/moveis.jpeg",
     items: [
       "Secagem controlada para estabilidade",
       "Selecionada para colagem e usinagem",
@@ -59,8 +54,7 @@ const products = [
   {
     title: "Subprodutos aproveitados",
     desc: "Cavaco e serragem para biomassa, cama de aviario e absorcao.",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80",
+    image: "/servicos/subprodutos.jpeg",
     items: [
       "Volumes fracionados ou a granel",
       "Umidade acompanhada para melhor uso",

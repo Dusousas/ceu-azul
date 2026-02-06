@@ -7,11 +7,11 @@ export default function Page() {
 
   const stats = useMemo(
     () => [
-      { label: "Início das atividades", value: "Set/2023" },
-      { label: "Experiência do grupo", value: "20+ anos" },
-      { label: "Foco", value: "Qualidade & Sustentabilidade" },
+      { label: "Início das operações", value: "2023" },
+      { label: "Experiência do grupo", value: "30+ anos" },
+      { label: "Compromisso", value: "Qualidade • Ética • Sustentabilidade" },
     ],
-    []
+    [],
   );
 
   return (
@@ -22,20 +22,21 @@ export default function Page() {
           <div className="maxW z-10 text-white top-[56px] py-16 lg:py-24">
             <div className="max-w-[980px]">
               <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
-                Nossa história vem de família
+                Extraída com cuidado. Entregue com confiança.
               </p>
 
               <h1 className="font-Barlow uppercase font-bold text-white mt-3 text-3xl sm:text-4xl lg:text-5xl leading-tight">
-                Tradição e Inovação no Mercado Madeireiro
+                Tradição, tecnologia e responsabilidade no processamento de
+                madeira
               </h1>
 
-              <p className="font-Jost mt-6 text-base sm:text-lg lg:w-[75%] text-white/90 leading-relaxed">
-                Bem-vindo à nossa serraria Céu Azul, uma empresa que iniciou
-                suas atividades em setembro de 2023 com o objetivo de trazer
-                qualidade e inovação ao setor madeireiro. Apesar de sermos novos
-                no mercado, nossa história está enraizada na tradição e na
-                experiência de um grupo investidor com mais de 20 anos de
-                conhecimento e atuação no mercado madeireiro.
+              <p className="font-Jost mt-6 text-base sm:text-lg lg:w-[80%] text-white/90 leading-relaxed">
+                A Serraria Céu Azul nasceu com um propósito claro: transformar
+                madeira em soluções confiáveis, mantendo o respeito à floresta,
+                às pessoas e ao futuro. Unimos a força da tradição familiar à
+                eficiência industrial moderna para entregar produtos
+                consistentes, rastreados e de alta qualidade ao mercado nacional
+                e internacional.
               </p>
 
               {/* CTA + micro interactions */}
@@ -80,43 +81,50 @@ export default function Page() {
       {/* MAIN */}
       <section className="pt-16 lg:pt-20">
         <div className="maxW">
-          {/* Intro text with better rhythm */}
+          {/* Intro text */}
           <div className="lg:w-[82%]">
             <p className="font-Jost text-base sm:text-lg text-GrayP leading-relaxed">
-              Combinando a expertise acumulada ao longo de décadas com uma
-              abordagem moderna e sustentável, nossa serraria é dedicada a
-              fornecer produtos de alta qualidade, atendendo às necessidades e
-              expectativas dos nossos clientes. Acreditamos na importância de
-              preservar o meio ambiente, e por isso, adotamos práticas
-              responsáveis e sustentáveis em todo o nosso processo produtivo.
+              Atuamos com compromisso com a excelência em todas as etapas do
+              nosso processo produtivo — da extração responsável ao produto
+              final entregue. Cada decisão é guiada pela ética, pela
+              transparência e pela busca contínua por inovação no setor
+              madeireiro.
             </p>
 
             <p className="font-Jost mt-4 text-base sm:text-lg text-GrayP leading-relaxed">
-              Nossa missão é continuar a tradição de excelência no mercado
-              madeireiro, oferecendo soluções inovadoras e personalizadas que
-              agreguem valor aos projetos. Estamos comprometidos com a
-              qualidade, a sustentabilidade e a satisfação dos nossos clientes,
-              mantendo sempre os princípios que guiam nosso grupo.
+              Nosso modelo de operação é totalmente integrado, garantindo
+              controle de qualidade, padronização e confiabilidade. Trabalhamos
+              para construir relações sólidas e de longo prazo, oferecendo
+              soluções que atendem com precisão às necessidades de cada cliente.
             </p>
 
             <p className="font-Jost mt-4 text-base sm:text-lg text-GrayP leading-relaxed">
-              Descubra como podemos colaborar para o sucesso do seu próximo
-              projeto madeireiro. Juntos, vamos construir um futuro mais
-              sustentável e próspero no setor da madeira.
+              Mais do que fornecer madeira, entregamos segurança, consistência e
+              responsabilidade. É assim que ajudamos a fortalecer projetos,
+              negócios e um futuro mais sustentável para toda a cadeia
+              produtiva.
             </p>
           </div>
 
           {/* VIDEO + CARD */}
           <article className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            {/* Video card */}
+            {/* Video card (CAPA = PRÓPRIO VÍDEO) */}
             <div className="relative rounded-2xl overflow-hidden shadow-md border border-gray-100 bg-white group">
-              <img
-                src="/pexels-fabian-wiktor-3466355.jpg"
-                alt="Caetano contando a história"
-                className="w-full h-[280px] sm:h-[360px] object-cover group-hover:scale-[1.02] transition duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+              {/* Vídeo como capa (loop/mudo/sem controles) */}
+              <div className="relative w-full h-[280px] sm:h-[360px] overflow-hidden">
+                <iframe
+                  className="w-full h-full pointer-events-none"
+                  src="https://www.youtube.com/embed/hOsLsAphsH8?controls=0&mute=1&loop=1&playlist=hOsLsAphsH8"
+                  title="Vídeo institucional Céu Azul"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                />
+              </div>
 
+              {/* overlay para leitura */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+              {/* clique abre o modal */}
               <button
                 onClick={() => setIsVideoOpen(true)}
                 className="absolute inset-0 flex items-center justify-center"
@@ -141,7 +149,7 @@ export default function Page() {
                     Clique para assistir
                   </p>
                   <p className="font-Barlow uppercase text-white font-bold">
-                    História da Céu Azul
+                    Nossa história & propósito
                   </p>
                 </div>
               </div>
@@ -150,37 +158,25 @@ export default function Page() {
             {/* Text card */}
             <div className="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm hover:shadow-md transition">
               <h3 className="font-Barlow uppercase text-AzulS font-semibold text-xl">
-                Sugestão de vídeo
+                Nossa história & propósito
               </h3>
 
               <p className="font-Jost text-GrayP mt-4 leading-relaxed">
-                Uma ótima opção é um vídeo do Caetano contando a história do
-                início do trabalho com madeiras e explicando a importância da
-                Céu Azul na continuidade dessa empreitada.
+                Um relato que conecta gerações, mostrando como a experiência
+                acumulada ao longo de décadas deu origem à Serraria Céu Azul.
+                Aqui, tradição familiar, inovação industrial e respeito à
+                floresta caminham juntos para sustentar um crescimento sólido e
+                responsável.
               </p>
 
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => setIsVideoOpen(true)}
-                  className="rounded-xl bg-AzulP text-white px-5 py-3 font-Jost font-medium hover:opacity-90 transition active:scale-[0.98]"
+                  className="rounded-xl cursor-pointer bg-AzulP text-white px-5 py-3 font-Jost font-medium hover:opacity-90 transition active:scale-[0.98]"
                 >
                   Abrir vídeo
                 </button>
-
-                <button
-                  onClick={() =>
-                    alert("Envie a URL/arquivo que eu integro aqui 😉")
-                  }
-                  className="rounded-xl border border-gray-200 bg-white px-5 py-3 font-Jost font-medium text-GrayP hover:bg-gray-50 transition active:scale-[0.98]"
-                >
-                  Integrar vídeo (URL/arquivo)
-                </button>
               </div>
-
-              <p className="font-Jost text-GrayP mt-4 text-sm">
-                (Quando você tiver o link do YouTube/Vimeo ou um arquivo MP4, dá
-                pra colocar um player bonito com poster e controles.)
-              </p>
             </div>
           </article>
 
@@ -194,7 +190,7 @@ export default function Page() {
                 Missão, Visão e Valores da Céu Azul
               </h2>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 <span className="inline-flex items-center rounded-full border border-gray-200 px-3 py-1 text-xs font-Jost text-GrayP">
                   Ética
                 </span>
@@ -203,6 +199,9 @@ export default function Page() {
                 </span>
                 <span className="inline-flex items-center rounded-full border border-gray-200 px-3 py-1 text-xs font-Jost text-GrayP">
                   Qualidade
+                </span>
+                <span className="inline-flex items-center rounded-full border border-gray-200 px-3 py-1 text-xs font-Jost text-GrayP">
+                  Transparência
                 </span>
               </div>
             </div>
@@ -214,11 +213,10 @@ export default function Page() {
                   Missão
                 </h4>
                 <p className="font-Jost text-GrayP mt-4 leading-relaxed">
-                  Nossa missão é fornecer produtos madeireiros de alta
-                  qualidade, promovendo práticas sustentáveis e responsáveis que
-                  respeitem o meio ambiente. Comprometemo-nos a atender às
-                  necessidades dos nossos clientes com ética, transparência e
-                  inovação, contribuindo para um futuro mais verde e próspero.
+                  Fornecer produtos madeireiros de alta qualidade com
+                  consistência, rastreabilidade e responsabilidade ambiental,
+                  atuando com eficiência operacional, ética e compromisso com
+                  prazos e resultados.
                 </p>
               </div>
 
@@ -228,11 +226,10 @@ export default function Page() {
                   Visão
                 </h4>
                 <p className="font-Jost text-GrayP mt-4 leading-relaxed">
-                  Ser reconhecida como a referência em qualidade,
-                  sustentabilidade e inovação no mercado madeireiro,
-                  transformando a indústria através de práticas éticas e
-                  transparentes, e estabelecendo parcerias duradouras baseadas
-                  na confiança e no respeito mútuo.
+                  Ser reconhecida como uma referência nacional e internacional
+                  no fornecimento de madeira, construindo relações de confiança,
+                  fortalecendo o setor madeireiro e promovendo práticas
+                  sustentáveis de longo prazo.
                 </p>
               </div>
 
@@ -244,21 +241,20 @@ export default function Page() {
                 <ul className="font-Jost text-GrayP mt-4 space-y-3">
                   {[
                     [
-                      "Ética",
-                      "Agimos com integridade, honestidade e respeito.",
+                      "Integridade e confiança",
+                      "Agimos com transparência, responsabilidade e respeito em todas as relações.",
                     ],
                     [
-                      "Sustentabilidade",
-                      "Minimizamos impactos e promovemos uso responsável.",
+                      "Inovação com responsabilidade",
+                      "Buscamos soluções eficientes sem abrir mão do compromisso ambiental.",
                     ],
                     [
-                      "Transparência",
-                      "Relacionamento claro e aberto com todos.",
+                      "Profissionalismo e ética",
+                      "Excelência operacional, padronização e respeito aos nossos clientes e parceiros.",
                     ],
-                    ["Qualidade", "Excelência em produtos e serviços."],
                     [
-                      "Respeito ao Meio Ambiente",
-                      "Conservação e compromisso com o futuro.",
+                      "Compromisso com as pessoas e a sociedade",
+                      "Valorizamos nossos colaboradores, a comunidade e o futuro do setor florestal.",
                     ],
                   ].map(([t, d]) => (
                     <li
@@ -277,6 +273,65 @@ export default function Page() {
               </div>
             </div>
           </section>
+
+          {/* POR QUE NÓS? */}
+          <section className="mt-10 bg-white border border-gray-100 p-8 rounded-2xl shadow-sm">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+              <div className="lg:w-[52%]">
+                <h2 className="font-Barlow uppercase text-GrayP font-bold text-2xl sm:text-3xl">
+                  Por que a Serraria Céu Azul?
+                </h2>
+
+                <p className="font-Jost text-GrayP mt-4 leading-relaxed">
+                  Somos uma empresa brasileira, de origem familiar, localizada
+                  em Itararé – São Paulo, com mais de{" "}
+                  <strong>350 colaboradores</strong>. Atuamos com foco em
+                  produtos e serviços confiáveis, combinando escala industrial,
+                  tecnologia e controle rigoroso de qualidade para atender
+                  mercados exigentes no Brasil e no exterior.
+                </p>
+
+                <p className="font-Jost text-GrayP mt-4 leading-relaxed">
+                  <strong>Exportamos para mais de 10 países</strong> em todo o
+                  mundo, mantendo consistência, credibilidade e responsabilidade
+                  ambiental em cada entrega.
+                </p>
+              </div>
+
+              <div className="lg:w-[44%] grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  {
+                    title: "Expertise na indústria",
+                    desc: "Décadas de experiência e parte de um grupo com mais de 30 anos de referência no setor madeireiro.",
+                  },
+                  {
+                    title: "Alta capacidade produtiva",
+                    desc: "Mais de 5.000 m³ mensais, com equipamentos de alta tecnologia e processos eficientes.",
+                  },
+                  {
+                    title: "Soluções customizadas",
+                    desc: "Atendimento personalizado para diferentes aplicações e mercados.",
+                  },
+                  {
+                    title: "Madeira rastreada",
+                    desc: "Compromisso real com origem controlada e responsabilidade ambiental.",
+                  },
+                ].map((i) => (
+                  <div
+                    key={i.title}
+                    className="rounded-2xl border border-gray-100 p-5 hover:shadow-md transition bg-white"
+                  >
+                    <p className="font-Barlow uppercase font-semibold text-AzulS">
+                      {i.title}
+                    </p>
+                    <p className="font-Jost text-GrayP mt-2 leading-relaxed text-sm">
+                      {i.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -292,7 +347,7 @@ export default function Page() {
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
               <p className="font-Barlow uppercase font-bold text-GrayP">
-                Vídeo • História da Céu Azul
+                Vídeo • Nossa história & propósito
               </p>
               <button
                 onClick={() => setIsVideoOpen(false)}
@@ -302,12 +357,11 @@ export default function Page() {
               </button>
             </div>
 
-            {/* Troque esse iframe por sua URL real ou por <video controls /> */}
             <div className="aspect-video bg-black">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Vídeo"
+                src="https://www.youtube.com/embed/hOsLsAphsH8?autoplay=1"
+                title="História da Serraria Céu Azul"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />

@@ -22,9 +22,10 @@
 }
 
 
-body {
+body, html {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
 
 .maxW {
@@ -39,7 +40,7 @@ body {
 }
 
 .bgMain{
-  background-image: url('/pexels-fabian-wiktor-3466355.jpg');
+  background-image: url('/main.jpeg');
   background-size: cover;
 }
 

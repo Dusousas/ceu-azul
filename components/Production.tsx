@@ -4,29 +4,28 @@ import React, { useEffect, useMemo, useState } from "react";
 
 type ProgressItem = {
   label: string;
-  value: number; // porcentagem (0–100)
-  text: string; // ex: "70%", "7.000 m³/mês", "100 m³/dia"
+  value: number;
+  text: string;
 };
 
 const progressData: ProgressItem[] = [
   { label: "Mercado interno", value: 70, text: "70%" },
   { label: "Exportação", value: 30, text: "30%" },
-  { label: "Produção atual", value: 35, text: "100 m³/dia" },
+  { label: "Alta capacidade", value: 100, text: "5.000 m³/mês" },
+  { label: "Controle de umidade", value: 100, text: "12% (+/- 2%)" },
+  { label: "Países atendidos", value: 100, text: "10+ países" },
+  { label: "Colaboradores", value: 100, text: "350+ pessoas" },
+  // Se quiser manter metas:
   { label: "Meta 2025", value: 100, text: "300 m³/dia" },
-  { label: "Meta mensal (2025)", value: 100, text: "7.000 m³/mês" },
-  { label: "Produção anual", value: 100, text: "84.000 m³/ano" },
-  { label: "Colaboradores", value: 100, text: "XX pessoas" },
 ];
 
 function splitNumberAndSuffix(raw: string) {
-  // pega o primeiro bloco numérico (com . ou ,) e o resto como sufixo
-  const match = raw.match(/(\d[\d.,]*)/);
+  const match = raw.match(/(\d[\d.,+]*)/);
   if (!match) return { num: null as number | null, suffix: raw };
 
-  const numPart = match[1];
-  const suffix = raw.replace(numPart, "").trim();
+  const numPart = match[1].replace("+", "");
+  const suffix = raw.replace(match[1], "").trim();
 
-  // "7.000" -> 7000 / "84.000" -> 84000 / "70" -> 70
   const cleaned = numPart.replace(/\./g, "").replace(",", ".");
   const parsed = Number(cleaned);
 
@@ -45,19 +44,17 @@ function ProgressBar({ label, value, text }: ProgressItem) {
   const parsed = useMemo(() => splitNumberAndSuffix(text), [text]);
 
   useEffect(() => {
-    // anima a barra (0 -> value)
     const t = setTimeout(() => setFill(value), 120);
     return () => clearTimeout(t);
   }, [value]);
 
   useEffect(() => {
-    // anima o número (0 -> alvo) se conseguir extrair número do "text"
     if (parsed.num === null) {
       setDisplayText(text);
       return;
     }
 
-    const duration = 900; // ms
+    const duration = 900;
     const start = performance.now();
     const target = parsed.num;
 
@@ -65,24 +62,25 @@ function ProgressBar({ label, value, text }: ProgressItem) {
 
     const tick = (now: number) => {
       const progress = Math.min((now - start) / duration, 1);
-      // easing suave
       const eased = 1 - Math.pow(1 - progress, 3);
 
       const current = Math.round(target * eased);
 
-      // se for porcentagem, mantém como "70%"
       const isPercent = /%/.test(text);
+      const hasPlus = /\+/.test(text);
 
       const numberStr = isPercent ? String(current) : formatNumberPTBR(current);
       const suffixStr = parsed.suffix ? ` ${parsed.suffix}` : "";
 
-      setDisplayText(isPercent ? `${numberStr}%` : `${numberStr}${suffixStr}`);
+      if (isPercent) setDisplayText(`${numberStr}%`);
+      else setDisplayText(`${numberStr}${hasPlus ? "+" : ""}${suffixStr}`);
 
       if (progress < 1) raf = requestAnimationFrame(tick);
     };
 
-    // inicia zerado visualmente
-    setDisplayText(/%/.test(text) ? "0%" : `0${parsed.suffix ? ` ${parsed.suffix}` : ""}`);
+    setDisplayText(
+      /%/.test(text) ? "0%" : `0${parsed.suffix ? ` ${parsed.suffix}` : ""}`
+    );
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
@@ -110,30 +108,28 @@ export default function Production() {
   return (
     <>
       <section id="numeros" className="py-30 bgProduction relative">
-        {/* Overlay */}
         <div className="absolute inset-0 bg-AzulP/95 pointer-events-none" />
 
-        <div className="maxW relative flex flex-col items-center z-10 text-white gap-20 lg:flex-row">
+        <div className="maxW relative flex flex-col items-center z-10 text-white gap-16 lg:flex-row">
           {/* LEFT TEXT */}
           <article className="lg:w-1/2">
             <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
               Nossos números
             </p>
 
-            <h2 className="font-Barlow mt-4 uppercase font-bold text-white lg:max-w-[600px] lg:text-5xl">
-              Capacidade, crescimento e performance em produção
+            <h2 className="font-Barlow mt-4 uppercase font-bold text-white lg:max-w-[680px] lg:text-5xl">
+              Capacidade e controle de processo para entregar com confiança
             </h2>
 
-            <p className="mt-4 font-Jost">
-              A Serraria Céu Azul atua no setor madeireiro em Itararé/SP e integra o
-              Grupo Elopack. Nossa operação é focada em eficiência, rastreabilidade
-              e evolução constante, com metas claras para 2025.
+            <p className="mt-4 font-Jost text-white/90 leading-relaxed">
+              Nossa operação é integrada e focada em padronização, controle de
+              umidade e rastreabilidade. Atuamos no mercado interno e também
+              exportamos, mantendo consistência e qualidade em cada lote.
             </p>
 
-            <p className="mt-4 font-Jost text-white/85">
-              Hoje, 70% da atuação é no mercado interno e 30% para exportação. A produção
-              parte de 100 m³/dia e tem como objetivo chegar a 300 m³/dia, com 7.000 m³
-              mensais ao final de 2025.
+            <p className="mt-4 font-Jost text-white/80 leading-relaxed">
+              Estrutura, pessoas e processo — para sustentar crescimento com
+              responsabilidade.
             </p>
 
             <div className="border border-AzulC w-[200px] mt-8" />
@@ -141,14 +137,14 @@ export default function Production() {
             <div className="mt-9 flex">
               <a
                 className="uppercase tracking-wider font-Jost text-white bg-Orange hover:bg-hoverAzul hover:text-AzulP py-4 px-6"
-                href=""
+                href="#contato"
               >
                 Entrar em contato
               </a>
             </div>
 
             <p className="mt-4 font-Jost text-white/70 text-sm">
-              *Produção anual estimada com base na meta mensal (7.000 m³/mês).
+              *Valores podem variar conforme disponibilidade e demanda.
             </p>
           </article>
 
