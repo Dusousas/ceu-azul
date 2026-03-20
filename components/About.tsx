@@ -3,6 +3,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { type Locale, localizedPath } from "@/lib/i18n";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,47 +15,124 @@ type Card = {
   topics: string[];
 };
 
-export default function About() {
-  const cards: Card[] = [
-    {
-      icon: "/icons/005-logs.png",
-      title: "Madeira para Pallets",
-      text: "Soluções em madeira para pallets com padrão técnico e produção sob demanda.",
-      topics: [
-        "Tipos e dimensões (padrão e sob medida)",
-        "Especificações técnicas conforme aplicação",
-        "Padronização para logística e indústria",
-      ],
-    },
-    {
-      icon: "/icons/005-logs.png",
-      title: "Madeiras Brutas e Beneficiadas",
-      text: "Variedade de espécies e opções de acabamento para diferentes usos.",
-      topics: [
-        "Pínus, eucalipto e outras opções",
-        "Bruta, beneficiada, aparelhada ou tratada",
-        "Aplicações e acabamentos conforme necessidade",
-      ],
-    },
-    {
-      icon: "/icons/005-logs.png",
-      title: "Madeira Serrada para Construção",
-      text: "Linha destinada à construção civil para mercado interno e externo.",
-      topics: [
-        "Cortes e bitolas para construção",
-        "Padrões para mercado interno e exportação",
-        "Seleção e controle de qualidade",
-      ],
-    },
-    {
-      icon: "/icons/005-logs.png",
-      title: "Outros Produtos",
-      text: "Aproveitamento de resíduos com aplicações industriais e energéticas.",
-      topics: ["Cavacos", "Serragem", "Biomassa (quando disponível)"],
-    },
-  ];
+const messages = {
+  "pt-BR": {
+    kicker: "Extraida com cuidado. Entregue com confianca.",
+    title: "Tradicao, tecnologia e responsabilidade no processamento de madeira",
+    description:
+      "A Serraria Ceu Azul une a forca da tradicao familiar a eficiencia de uma operacao moderna e integrada, entregando madeira com consistencia, rastreabilidade e responsabilidade ambiental para atender mercados exigentes no Brasil e no exterior.",
+    historyCta: "Conheca nossa historia",
+    missionKicker: "Missao, Visao e Valores",
+    missionTitle: "Compromisso com qualidade, etica e sustentabilidade",
+    missionDescription:
+      "Nossa atuacao e guiada por integridade, transparencia e eficiencia operacional. Trabalhamos com origem controlada, padronizacao e controle de qualidade para entregar produtos consistentes - com responsabilidade ambiental em cada etapa.",
+    missionCta: "Nossa missao",
+    missionAlt: "Sustentabilidade e producao responsavel",
+    stats: [
+      { value: "30+", label: "Anos de experiencia do grupo" },
+      { value: "350+", label: "Colaboradores" },
+      { value: "10+", label: "Paises atendidos" },
+    ],
+    cards: [
+      {
+        icon: "/icons/005-logs.png",
+        title: "Madeira para Pallets",
+        text: "Solucoes em madeira para pallets com padrao tecnico e producao sob demanda.",
+        topics: [
+          "Tipos e dimensoes (padrao e sob medida)",
+          "Especificacoes tecnicas conforme aplicacao",
+          "Padronizacao para logistica e industria",
+        ],
+      },
+      {
+        icon: "/icons/005-logs.png",
+        title: "Madeiras Brutas e Beneficiadas",
+        text: "Variedade de especies e opcoes de acabamento para diferentes usos.",
+        topics: [
+          "Pinus, eucalipto e outras opcoes",
+          "Bruta, beneficiada, aparelhada ou tratada",
+          "Aplicacoes e acabamentos conforme necessidade",
+        ],
+      },
+      {
+        icon: "/icons/005-logs.png",
+        title: "Madeira Serrada para Construcao",
+        text: "Linha destinada a construcao civil para mercado interno e externo.",
+        topics: [
+          "Cortes e bitolas para construcao",
+          "Padroes para mercado interno e exportacao",
+          "Selecao e controle de qualidade",
+        ],
+      },
+      {
+        icon: "/icons/005-logs.png",
+        title: "Outros Produtos",
+        text: "Aproveitamento de residuos com aplicacoes industriais e energeticas.",
+        topics: ["Cavacos", "Serragem", "Biomassa (quando disponivel)"],
+      },
+    ] as Card[],
+  },
+  "en-US": {
+    kicker: "Carefully sourced. Reliably delivered.",
+    title: "Tradition, technology, and responsibility in wood processing",
+    description:
+      "Ceu Azul Sawmill combines the strength of family tradition with the efficiency of a modern integrated operation, delivering timber with consistency, traceability, and environmental responsibility for demanding markets in Brazil and abroad.",
+    historyCta: "Learn our story",
+    missionKicker: "Mission, Vision, and Values",
+    missionTitle: "A commitment to quality, ethics, and sustainability",
+    missionDescription:
+      "Our work is guided by integrity, transparency, and operational efficiency. We operate with controlled origin, standardization, and quality control to deliver consistent products - with environmental responsibility at every stage.",
+    missionCta: "Our mission",
+    missionAlt: "Sustainability and responsible production",
+    stats: [
+      { value: "30+", label: "Years of group experience" },
+      { value: "350+", label: "Employees" },
+      { value: "10+", label: "Countries served" },
+    ],
+    cards: [
+      {
+        icon: "/icons/005-logs.png",
+        title: "Wood for pallets",
+        text: "Wood solutions for pallets with technical standards and on-demand production.",
+        topics: [
+          "Types and dimensions (standard and custom)",
+          "Technical specifications by application",
+          "Standardization for logistics and industry",
+        ],
+      },
+      {
+        icon: "/icons/005-logs.png",
+        title: "Rough and processed timber",
+        text: "A variety of species and finishing options for different uses.",
+        topics: [
+          "Pine, eucalyptus, and other options",
+          "Rough, processed, planed, or treated",
+          "Applications and finishes as needed",
+        ],
+      },
+      {
+        icon: "/icons/005-logs.png",
+        title: "Sawn timber for construction",
+        text: "A product line designed for construction in domestic and international markets.",
+        topics: [
+          "Cuts and dimensions for construction",
+          "Standards for domestic and export markets",
+          "Selection and quality control",
+        ],
+      },
+      {
+        icon: "/icons/005-logs.png",
+        title: "Other products",
+        text: "By-product reuse with industrial and energy applications.",
+        topics: ["Wood chips", "Sawdust", "Biomass (when available)"],
+      },
+    ] as Card[],
+  },
+} as const;
 
-  const hasSlider = cards.length > 3;
+export default function About({ locale }: { locale: Locale }) {
+  const content = messages[locale];
+  const hasSlider = content.cards.length > 3;
 
   const CardItem = ({ card }: { card: Card }) => (
     <div className="border border-gray-100 py-10 px-8 bg-white h-full">
@@ -65,8 +143,8 @@ export default function About() {
       <p className="font-Jost mt-2 text-GrayP">{card.text}</p>
 
       <ul className="mt-4 space-y-2">
-        {card.topics.map((topic, i) => (
-          <li key={i} className="font-Jost text-GrayP text-sm flex gap-2">
+        {card.topics.map((topic) => (
+          <li key={topic} className="font-Jost text-GrayP text-sm flex gap-2">
             <span className="text-AzulS mt-[1px]">•</span>
             <span>{topic}</span>
           </li>
@@ -76,155 +154,103 @@ export default function About() {
   );
 
   return (
-    <>
-      <section id="sobre-nos" className="pt-20 bg-[#FCFCFC]">
-        <div className="maxW">
-          <p className="font-Jost uppercase tracking-wider font-medium text-AzulS">
-            Extraída com cuidado. Entregue com confiança.
-          </p>
+    <section id="sobre-nos" className="pt-20 bg-[#FCFCFC]">
+      <div className="maxW">
+        <p className="font-Jost uppercase tracking-wider font-medium text-AzulS">
+          {content.kicker}
+        </p>
 
-          <h2 className="font-Barlow uppercase font-bold text-GrayP mt-2 lg:max-w-[720px] lg:text-5xl">
-            Tradição, tecnologia e responsabilidade no processamento de madeira
-          </h2>
+        <h2 className="font-Barlow uppercase font-bold text-GrayP mt-2 lg:max-w-[720px] lg:text-5xl">
+          {content.title}
+        </h2>
 
-          <p className="font-Jost mt-2 text-base sm:text-lg lg:w-[80%] text-GrayP">
-            A Serraria Céu Azul une a força da tradição familiar à eficiência de
-            uma operação moderna e integrada, entregando madeira com
-            consistência, rastreabilidade e responsabilidade ambiental para
-            atender mercados exigentes no Brasil e no exterior.
-          </p>
+        <p className="font-Jost mt-2 text-base sm:text-lg lg:w-[80%] text-GrayP">
+          {content.description}
+        </p>
 
-          <div className="mt-4 flex">
-            <a
-              className="uppercase tracking-wider text-white font-Jost bg-AzulS hover:bg-hoverAzul hover:text-AzulP py-4 px-6"
-              href="/nossa-historia"
+        <div className="mt-4 flex">
+          <a
+            className="uppercase tracking-wider text-white font-Jost bg-AzulS hover:bg-hoverAzul hover:text-AzulP py-4 px-6"
+            href={localizedPath(locale, "/nossa-historia")}
+          >
+            {content.historyCta}
+          </a>
+        </div>
+
+        <article className="mt-14">
+          {!hasSlider ? (
+            <div className="flex flex-col lg:flex-row">
+              {content.cards.map((card, index) => (
+                <div key={index} className="border border-gray-100 lg:w-1/4">
+                  <CardItem card={card} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <Swiper
+              modules={[Pagination]}
+              pagination={{ clickable: true }}
+              spaceBetween={16}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="pb-12"
             >
-              Conheça nossa história
-            </a>
+              {content.cards.map((card, index) => (
+                <SwiperSlide key={index}>
+                  <CardItem card={card} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+        </article>
+
+        <article className="mt-14 flex flex-col lg:flex-row">
+          <div className="lg:w-[40%]">
+            <img src="/about.jpeg" alt={content.missionAlt} />
           </div>
 
-          {/* Cards (se passar de 3 vira Swiper) */}
-          <article className="mt-14">
-            {!hasSlider ? (
-              <div className="flex flex-col lg:flex-row">
-                {cards.map((card, index) => (
-                  <div key={index} className="border border-gray-100 lg:w-1/4">
-                    <div className="py-10 px-8 bg-white h-full">
-                      <img
-                        className="w-[70px]"
-                        src={card.icon}
-                        alt={card.title}
-                      />
-                      <h2 className="font-Jost text-GrayP font-medium text-lg mt-4">
-                        {card.title}
-                      </h2>
-                      <p className="font-Jost mt-2 text-GrayP">{card.text}</p>
+          <div className="lg:w-[60%] bg-AzulP p-10 sm:p-14 lg:p-20">
+            <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
+              {content.missionKicker}
+            </p>
 
-                      <ul className="mt-4 space-y-2">
-                        {card.topics.map((topic, i) => (
-                          <li
-                            key={i}
-                            className="font-Jost text-GrayP text-sm flex gap-2"
-                          >
-                            <span className="text-AzulS mt-[1px]">•</span>
-                            <span>{topic}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <Swiper
-                modules={[Pagination]}
-                pagination={{ clickable: true }}
-                spaceBetween={16}
-                slidesPerView={1}
-                breakpoints={{
-                  640: { slidesPerView: 2 },
-                  1024: { slidesPerView: 3 },
-                }}
-                className="pb-12"
+            <h2 className="font-Barlow mt-4 uppercase font-bold text-white lg:max-w-[740px] lg:text-5xl">
+              {content.missionTitle}
+            </h2>
+
+            <p className="font-Jost text-white mt-6 leading-relaxed">
+              {content.missionDescription}
+            </p>
+
+            <div className="flex mt-6">
+              <a
+                className="uppercase tracking-wider font-Jost text-white bg-Orange hover:bg-hoverAzul hover:text-AzulP py-4 px-6"
+                href={localizedPath(locale, "/nossa-historia")}
               >
-                {cards.map((card, index) => (
-                  <SwiperSlide key={index}>
-                    <CardItem card={card} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            )}
-          </article>
-
-          {/* NOSSA MISSÃO (enxuto + link pra página detalhada) */}
-          <article className="mt-14 flex flex-col lg:flex-row">
-            <div className="lg:w-[40%]">
-              <img
-                src="/about.jpeg"
-                alt="Sustentabilidade e produção responsável"
-              />
+                {content.missionCta}
+              </a>
             </div>
 
-            <div className="lg:w-[60%] bg-AzulP p-10 sm:p-14 lg:p-20">
-              <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
-                Missão, Visão e Valores
-              </p>
+            <div className="border border-AzulC mx-auto w-[200px] mt-8 lg:mx-0" />
 
-              <h2 className="font-Barlow mt-4 uppercase font-bold text-white lg:max-w-[740px] lg:text-5xl">
-                Compromisso com qualidade, ética e sustentabilidade
-              </h2>
-
-              <p className="font-Jost text-white mt-6 leading-relaxed">
-                Nossa atuação é guiada por integridade, transparência e
-                eficiência operacional. Trabalhamos com origem controlada,
-                padronização e controle de qualidade para entregar produtos
-                consistentes — com responsabilidade ambiental em cada etapa.
-              </p>
-
-              <div className="flex mt-6">
-                <a
-                  className="uppercase tracking-wider font-Jost text-white bg-Orange hover:bg-hoverAzul hover:text-AzulP py-4 px-6"
-                  href="/nossa-historia"
-                >
-                  Nossa missão
-                </a>
-              </div>
-
-              <div className="border border-AzulC mx-auto w-[200px] mt-8 lg:mx-0" />
-
-              {/* números rápidos (enxutos e reais) */}
-              <div className="flex flex-col gap-12 mt-14 lg:flex-row lg:gap-16">
-                <div>
+            <div className="flex flex-col gap-12 mt-14 lg:flex-row lg:gap-16">
+              {content.stats.map((stat) => (
+                <div key={stat.label}>
                   <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
-                    30+
+                    {stat.value}
                   </h3>
                   <p className="font-Jost text-white text-sm uppercase">
-                    Anos de experiência do grupo
+                    {stat.label}
                   </p>
                 </div>
-
-                <div>
-                  <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
-                    350+
-                  </h3>
-                  <p className="font-Jost text-sm text-white uppercase">
-                    Colaboradores
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-Barlow text-5xl lg:text-6xl font-semibold text-AzulC">
-                    10+
-                  </h3>
-                  <p className="font-Jost text-white text-sm uppercase">
-                    Países atendidos
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
-          </article>
-        </div>
-      </section>
-    </>
+          </div>
+        </article>
+      </div>
+    </section>
   );
 }

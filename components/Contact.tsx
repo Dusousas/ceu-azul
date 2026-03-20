@@ -1,28 +1,72 @@
 import React from "react";
 import Form from "./subc/Form";
+import { type Locale } from "@/lib/i18n";
 
-export default function Contact() {
+const messages = {
+  "pt-BR": {
+    kicker: "Vamos trabalhar juntos",
+    title: "Entre em contato com a Serraria Ceu Azul",
+    description:
+      "Solicite um orcamento, tire duvidas comerciais e fale com nosso time para encontrar a melhor solucao em madeira para sua operacao.",
+    whatsappHelp: "Resposta rapida para orcamentos",
+    emailHelp: "Envie especificacoes e volumes",
+    linkedinHelp: "Acompanhe novidades e estrutura",
+    phoneHelp: "Atendimento em horario comercial",
+    addressLabel: "Endereco",
+    address:
+      "Rodovia Francisco Alves Negrao (SP-258), Km 331, bairro Ibiti, Itarare - SP",
+    zipCode: "CEP 18467-899",
+    hoursLabel: "Horario de funcionamento",
+    weekDays: "Segunda a Sexta",
+    hours: "08:00 - 17:00",
+    phoneLabel: "Telefone",
+    formTitle: "Solicite um orcamento",
+    formDescription:
+      "Preencha o formulario e nossa equipe retorna com as proximas etapas. Se puder, informe tipo de madeira, medidas e volume.",
+  },
+  "en-US": {
+    kicker: "Let's work together",
+    title: "Get in touch with Ceu Azul Sawmill",
+    description:
+      "Request a quote, ask commercial questions, and speak with our team to find the best timber solution for your operation.",
+    whatsappHelp: "Fast responses for quotes",
+    emailHelp: "Send specifications and volumes",
+    linkedinHelp: "Follow updates and company news",
+    phoneHelp: "Business hours support",
+    addressLabel: "Address",
+    address:
+      "Francisco Alves Negrao Highway (SP-258), Km 331, Ibiti district, Itarare - SP",
+    zipCode: "ZIP 18467-899",
+    hoursLabel: "Business hours",
+    weekDays: "Monday to Friday",
+    hours: "08:00 - 17:00",
+    phoneLabel: "Phone",
+    formTitle: "Request a quote",
+    formDescription:
+      "Fill out the form and our team will reply with the next steps. If possible, include wood type, dimensions, and volume.",
+  },
+} as const;
+
+export default function Contact({ locale }: { locale: Locale }) {
+  const content = messages[locale];
+
   return (
     <section id="contato" className="w-full bg-white">
       <div className="flex flex-col w-full items-stretch lg:flex-row">
-        {/* BLOCO INSTITUCIONAL / CONTATO DIRETO */}
         <article className="py-20 w-full lg:w-1/2 px-4 lg:px-20 flex flex-col justify-center">
           <p className="font-Jost uppercase tracking-wider font-medium text-AzulP text-center lg:text-left">
-            Vamos trabalhar juntos
+            {content.kicker}
           </p>
 
           <h2 className="font-Barlow text-center uppercase font-bold text-GrayP mt-2 lg:max-w-[640px] lg:text-4xl lg:text-left">
-            Entre em contato com a Serraria Céu Azul
+            {content.title}
           </h2>
 
           <p className="font-Jost mt-6 text-GrayP lg:max-w-[560px] text-center lg:text-left">
-            Solicite um orçamento, tire dúvidas comerciais e fale com nosso time
-            para encontrar a melhor solução em madeira para sua operação.
+            {content.description}
           </p>
 
-          {/* CARDS DE CONTATO */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* WhatsApp */}
             <a
               href="https://wa.me/5547997316610"
               target="_blank"
@@ -30,7 +74,6 @@ export default function Contact() {
             >
               <div className="flex items-start gap-4">
                 <span className="h-12 w-12 rounded-xl bg-AzulP/10 flex items-center justify-center">
-                  {/* WhatsApp icon */}
                   <svg
                     viewBox="0 0 24 24"
                     className="h-6 w-6 text-AzulP"
@@ -45,11 +88,9 @@ export default function Contact() {
                   <p className="font-Barlow uppercase font-semibold text-GrayP">
                     WhatsApp
                   </p>
-                  <p className="font-Jost text-GrayP mt-1">
-                    +55 47 99731-6610
-                  </p>
+                  <p className="font-Jost text-GrayP mt-1">+55 47 99731-6610</p>
                   <p className="font-Jost text-sm text-GrayP/70 mt-1">
-                    Resposta rápida para orçamentos
+                    {content.whatsappHelp}
                   </p>
                 </div>
 
@@ -59,14 +100,12 @@ export default function Contact() {
               </div>
             </a>
 
-            {/* Email */}
             <a
               href="mailto:jonatan.souza@elopack.ind.br"
               className="group rounded-2xl border border-gray-100 bg-white p-5 shadow-sm hover:shadow-md transition"
             >
               <div className="flex items-start gap-4">
                 <span className="h-12 w-12 rounded-xl bg-AzulP/10 flex items-center justify-center">
-                  {/* Mail icon */}
                   <svg
                     viewBox="0 0 24 24"
                     className="h-6 w-6 text-AzulP"
@@ -85,7 +124,7 @@ export default function Contact() {
                     jonatan.souza@elopack.ind.br
                   </p>
                   <p className="font-Jost text-sm text-GrayP/70 mt-1">
-                    Envie especificações e volumes
+                    {content.emailHelp}
                   </p>
                 </div>
 
@@ -95,7 +134,6 @@ export default function Contact() {
               </div>
             </a>
 
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/company/ceuazul"
               target="_blank"
@@ -103,7 +141,6 @@ export default function Contact() {
             >
               <div className="flex items-start gap-4">
                 <span className="h-12 w-12 rounded-xl bg-AzulP/10 flex items-center justify-center">
-                  {/* LinkedIn icon */}
                   <svg
                     viewBox="0 0 24 24"
                     className="h-6 w-6 text-AzulP"
@@ -120,7 +157,7 @@ export default function Contact() {
                   </p>
                   <p className="font-Jost text-GrayP mt-1">@ceuazul</p>
                   <p className="font-Jost text-sm text-GrayP/70 mt-1">
-                    Acompanhe novidades e estrutura
+                    {content.linkedinHelp}
                   </p>
                 </div>
 
@@ -130,14 +167,12 @@ export default function Contact() {
               </div>
             </a>
 
-            {/* Telefone fixo (opcional) */}
             <a
               href="tel:+551436563014"
               className="group rounded-2xl border border-gray-100 bg-white p-5 shadow-sm hover:shadow-md transition"
             >
               <div className="flex items-start gap-4">
                 <span className="h-12 w-12 rounded-xl bg-AzulP/10 flex items-center justify-center">
-                  {/* Phone icon */}
                   <svg
                     viewBox="0 0 24 24"
                     className="h-6 w-6 text-AzulP"
@@ -150,11 +185,11 @@ export default function Contact() {
 
                 <div className="flex-1">
                   <p className="font-Barlow uppercase font-semibold text-GrayP">
-                    Telefone
+                    {content.phoneLabel}
                   </p>
                   <p className="font-Jost text-GrayP mt-1">(14) 3656-3014</p>
                   <p className="font-Jost text-sm text-GrayP/70 mt-1">
-                    Atendimento em horário comercial
+                    {content.phoneHelp}
                   </p>
                 </div>
 
@@ -165,43 +200,40 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* ENDEREÇO + HORÁRIO */}
           <div className="mt-12">
             <div className="border my-10 lg:max-w-[560px]" />
 
             <p className="font-Jost uppercase tracking-wider font-medium text-AzulP">
-              Endereço
+              {content.addressLabel}
             </p>
 
             <p className="font-Jost mt-3 text-GrayP lg:max-w-[560px]">
-              Rodovia Francisco Alves Negrão (SP-258), Km 331, bairro Ibiti,
-              Itararé – SP <br />
-              CEP 18467-899
+              {content.address}
+              <br />
+              {content.zipCode}
             </p>
 
             <div className="border my-10 lg:max-w-[560px]" />
 
             <p className="font-Jost uppercase tracking-wider font-medium text-AzulP">
-              Horário de funcionamento
+              {content.hoursLabel}
             </p>
-            <p className="font-Jost mt-3 text-GrayP">Segunda a Sexta</p>
-            <p className="font-Jost text-GrayP">08:00 – 17:00</p>
+            <p className="font-Jost mt-3 text-GrayP">{content.weekDays}</p>
+            <p className="font-Jost text-GrayP">{content.hours}</p>
           </div>
         </article>
 
-        {/* FORMULÁRIO */}
         <article className="bg-[#F6F6F6] w-full lg:w-1/2 py-20 px-4 lg:px-20 flex items-center">
           <div className="w-full">
             <h3 className="font-Barlow uppercase font-bold text-GrayP text-2xl mb-6">
-              Solicite um orçamento
+              {content.formTitle}
             </h3>
 
             <p className="font-Jost text-GrayP mb-8">
-              Preencha o formulário e nossa equipe retorna com as próximas
-              etapas. Se puder, informe tipo de madeira, medidas e volume.
+              {content.formDescription}
             </p>
 
-            <Form />
+            <Form locale={locale} />
           </div>
         </article>
       </div>

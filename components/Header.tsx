@@ -1,15 +1,36 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import { getLocaleFromPathname, localizedPath } from "@/lib/i18n";
 import Navbar from "./subc/Navbar";
+import LanguageSwitcher from "./subc/LanguageSwitcher";
 
 export default function Header() {
-  return (
-    <>
-      <header className="z-30 absolute w-full">
-        <div className="flex justify-between py-2 w-full border-b border-white items-center backdrop-blur-[6px] px-4 lg:px-20">
-          <a href="/"><img className="w-[80px]" src="/logo.png" alt="" /></a>
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
 
+  return (
+    <header className="z-30 absolute w-full">
+      {/* backdrop-blur isolado num pseudo-layer para não criar stacking context nos filhos fixed */}
+      <div className="absolute inset-0 backdrop-blur-[6px] border-b border-white pointer-events-none" />
+
+      <div className="relative flex justify-between py-2 w-full items-center px-4 lg:px-20">
+        <a href={localizedPath(locale)}>
+          <img
+            className="w-[80px]"
+            src="/logo.png"
+            alt="Logo da Serraria Ceu Azul"
+          />
+        </a>
+
+        <div className="flex items-center gap-4">
           <Navbar />
+
+          <div className="absolute top-2 right-6">
+            <LanguageSwitcher />
+          </div>
         </div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 }

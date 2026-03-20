@@ -3,6 +3,7 @@ import { Barlow_Condensed, Jost } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HtmlLangSync from "@/components/subc/HtmlLangSync";
 
 
 const barlowCondensed = Barlow_Condensed({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${barlowCondensed.variable} ${jost.variable} antialiased`}
       >
+        <HtmlLangSync />
         <Header />
         <main>{children}</main>
         <Footer />
