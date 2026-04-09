@@ -1,6 +1,12 @@
 "use client";
 
 import React from "react";
+import {
+  FaBoxesStacked,
+  FaLeaf,
+  FaTree,
+  FaWarehouse,
+} from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { type Locale, localizedPath } from "@/lib/i18n";
@@ -9,7 +15,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 type Card = {
-  icon: string;
+  icon: React.ElementType;
   title: string;
   text: string;
   topics: string[];
@@ -35,7 +41,7 @@ const messages = {
     ],
     cards: [
       {
-        icon: "/icons/005-logs.png",
+        icon: FaBoxesStacked,
         title: "Madeira para Pallets",
         text: "Solucoes em madeira para pallets com padrao tecnico e producao sob demanda.",
         topics: [
@@ -45,7 +51,7 @@ const messages = {
         ],
       },
       {
-        icon: "/icons/005-logs.png",
+        icon: FaTree,
         title: "Madeiras Brutas e Beneficiadas",
         text: "Variedade de especies e opcoes de acabamento para diferentes usos.",
         topics: [
@@ -55,7 +61,7 @@ const messages = {
         ],
       },
       {
-        icon: "/icons/005-logs.png",
+        icon: FaWarehouse,
         title: "Madeira Serrada para Construcao",
         text: "Linha destinada a construcao civil para mercado interno e externo.",
         topics: [
@@ -65,7 +71,7 @@ const messages = {
         ],
       },
       {
-        icon: "/icons/005-logs.png",
+        icon: FaLeaf,
         title: "Outros Produtos",
         text: "Aproveitamento de residuos com aplicacoes industriais e energeticas.",
         topics: ["Cavacos", "Serragem", "Biomassa (quando disponivel)"],
@@ -91,7 +97,7 @@ const messages = {
     ],
     cards: [
       {
-        icon: "/icons/005-logs.png",
+        icon: FaBoxesStacked,
         title: "Wood for pallets",
         text: "Wood solutions for pallets with technical standards and on-demand production.",
         topics: [
@@ -101,7 +107,7 @@ const messages = {
         ],
       },
       {
-        icon: "/icons/005-logs.png",
+        icon: FaTree,
         title: "Rough and processed timber",
         text: "A variety of species and finishing options for different uses.",
         topics: [
@@ -111,7 +117,7 @@ const messages = {
         ],
       },
       {
-        icon: "/icons/005-logs.png",
+        icon: FaWarehouse,
         title: "Sawn timber for construction",
         text: "A product line designed for construction in domestic and international markets.",
         topics: [
@@ -121,7 +127,7 @@ const messages = {
         ],
       },
       {
-        icon: "/icons/005-logs.png",
+        icon: FaLeaf,
         title: "Other products",
         text: "By-product reuse with industrial and energy applications.",
         topics: ["Wood chips", "Sawdust", "Biomass (when available)"],
@@ -134,24 +140,30 @@ export default function About({ locale }: { locale: Locale }) {
   const content = messages[locale];
   const hasSlider = content.cards.length > 3;
 
-  const CardItem = ({ card }: { card: Card }) => (
-    <div className="border border-gray-100 py-10 px-8 bg-white h-full">
-      <img className="w-[70px]" src={card.icon} alt={card.title} />
-      <h2 className="font-Jost text-GrayP font-medium text-lg mt-4">
-        {card.title}
-      </h2>
-      <p className="font-Jost mt-2 text-GrayP">{card.text}</p>
+  const CardItem = ({ card }: { card: Card }) => {
+    const Icon = card.icon;
 
-      <ul className="mt-4 space-y-2">
-        {card.topics.map((topic) => (
-          <li key={topic} className="font-Jost text-GrayP text-sm flex gap-2">
-            <span className="text-AzulS mt-[1px]">•</span>
-            <span>{topic}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    return (
+      <div className="border border-gray-100 py-10 px-8 bg-white h-full">
+        <div className="flex h-18 w-18 items-center justify-center rounded-full bg-AzulP/6 text-AzulS ring-1 ring-AzulS/15">
+          <Icon className="text-4xl" aria-hidden="true" />
+        </div>
+        <h2 className="font-Jost text-GrayP font-medium text-lg mt-4">
+          {card.title}
+        </h2>
+        <p className="font-Jost mt-2 text-GrayP">{card.text}</p>
+
+        <ul className="mt-4 space-y-2">
+          {card.topics.map((topic) => (
+            <li key={topic} className="font-Jost text-GrayP text-sm flex gap-2">
+              <span className="text-AzulS mt-[1px]">-</span>
+              <span>{topic}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   return (
     <section id="sobre-nos" className="pt-20 bg-[#FCFCFC]">

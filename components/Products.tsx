@@ -1,6 +1,23 @@
 import React from "react";
 import Link from "next/link";
+import {
+  FaBoxesStacked,
+  FaCouch,
+  FaRecycle,
+  FaScrewdriverWrench,
+  FaTree,
+  FaWarehouse,
+} from "react-icons/fa6";
 import { type Locale } from "@/lib/i18n";
+
+const itemIcons = [
+  FaBoxesStacked,
+  FaTree,
+  FaScrewdriverWrench,
+  FaWarehouse,
+  FaCouch,
+  FaRecycle,
+] as const;
 
 const messages = {
   "pt-BR": {
@@ -21,7 +38,6 @@ const messages = {
       {
         title: "Pallets e embalagens",
         desc: "Pallets para exportacao, one way e sob medida para logistica e industria.",
-        image: "/servicos/pallets.jpeg",
         points: [
           "Padroes PBR, PBR leve e medidas especiais",
           "Madeira seca e controle de umidade para exportacao",
@@ -31,7 +47,6 @@ const messages = {
       {
         title: "Madeira serrada",
         desc: "Pranchas, caibros, vigas e sarrafos cortados com padrao constante.",
-        image: "/servicos/madeira-serrada.jpeg",
         points: [
           "Pinus e eucalipto com rastreabilidade",
           "Bitolas constantes e cortes repetitivos",
@@ -41,7 +56,6 @@ const messages = {
       {
         title: "Madeiras beneficiadas",
         desc: "Aparelhada, lixada ou tratada para uso direto em obras e moveis.",
-        image: "/servicos/beneficiadas.jpeg",
         points: [
           "Cepilhada e aparelhada com acabamento fino",
           "Tratamento preventivo e impregnacao",
@@ -51,7 +65,6 @@ const messages = {
       {
         title: "Caibros e vigas estruturais",
         desc: "Componentes para coberturas, galpoes leves e estruturas temporarias.",
-        image: "/servicos/caibros.jpeg",
         points: [
           "Calculos de corte para minimizar desperdicio",
           "Bitolas indicadas para carga e vao",
@@ -61,7 +74,6 @@ const messages = {
       {
         title: "Componentes para moveis",
         desc: "Sarrafos, paineis colados e pecas cortadas para producao moveleira.",
-        image: "/servicos/moveis.jpeg",
         points: [
           "Secagem controlada para estabilidade",
           "Selecionada para colagem e usinagem",
@@ -71,7 +83,6 @@ const messages = {
       {
         title: "Subprodutos aproveitados",
         desc: "Cavaco e serragem para biomassa, cama de aviario e absorcao.",
-        image: "/servicos/subprodutos.jpeg",
         points: [
           "Volumes fracionados ou a granel",
           "Umidade acompanhada para melhor uso",
@@ -98,7 +109,6 @@ const messages = {
       {
         title: "Pallets and packaging",
         desc: "Export pallets, one-way solutions, and custom builds for logistics and industry.",
-        image: "/servicos/pallets.jpeg",
         points: [
           "PBR, light PBR, and special dimensions",
           "Dry wood and moisture control for export",
@@ -108,7 +118,6 @@ const messages = {
       {
         title: "Sawn timber",
         desc: "Boards, rafters, beams, and battens cut to consistent standards.",
-        image: "/servicos/madeira-serrada.jpeg",
         points: [
           "Pine and eucalyptus with traceability",
           "Consistent dimensions and repeatable cuts",
@@ -118,7 +127,6 @@ const messages = {
       {
         title: "Processed wood",
         desc: "Planed, sanded, or treated wood ready for direct use in construction and furniture.",
-        image: "/servicos/beneficiadas.jpeg",
         points: [
           "Planed finish for refined surfaces",
           "Preventive treatment and impregnation",
@@ -128,7 +136,6 @@ const messages = {
       {
         title: "Rafters and structural beams",
         desc: "Components for roofs, light sheds, and temporary structures.",
-        image: "/servicos/caibros.jpeg",
         points: [
           "Cut plans to minimize waste",
           "Dimensions matched to span and load",
@@ -138,7 +145,6 @@ const messages = {
       {
         title: "Furniture components",
         desc: "Battens, glued panels, and cut parts for furniture production.",
-        image: "/servicos/moveis.jpeg",
         points: [
           "Controlled drying for stability",
           "Selected for gluing and machining",
@@ -148,7 +154,6 @@ const messages = {
       {
         title: "Recovered by-products",
         desc: "Wood chips and sawdust for biomass, poultry bedding, and absorption uses.",
-        image: "/servicos/subprodutos.jpeg",
         points: [
           "Split volumes or bulk supply",
           "Moisture tracked for better usage",
@@ -165,7 +170,7 @@ export default function Products({ locale }: { locale: Locale }) {
   return (
     <section id="produtos" className="py-20 bg-white">
       <div className="maxW flex flex-col gap-12 ">
-        <article className=" lg:w-[60%]">
+        <article className="lg:w-[60%]">
           <p className="font-Jost uppercase tracking-wider font-medium text-AzulS">
             {content.kicker}
           </p>
@@ -178,7 +183,7 @@ export default function Products({ locale }: { locale: Locale }) {
             {content.description}
           </p>
 
-          <div className="grid mt-6 grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* <div className="grid mt-6 grid-cols-1 sm:grid-cols-2 gap-3">
             {content.highlights.map((item) => (
               <div
                 key={item}
@@ -187,7 +192,7 @@ export default function Products({ locale }: { locale: Locale }) {
                 <p className="font-Jost text-GrayP">{item}</p>
               </div>
             ))}
-          </div>
+          </div> */}
 
           <div className="flex mt-6 flex-col gap-4 sm:flex-row">
             <a
@@ -206,42 +211,56 @@ export default function Products({ locale }: { locale: Locale }) {
         </article>
 
         <article className="grid  grid-cols-1 md:grid-cols-3 gap-4">
-          {content.items.map((product) => (
-            <div
-              key={product.title}
-              className="border border-gray-100 bg-white overflow-hidden hover:-translate-y-[2px] transition duration-150"
-            >
+          {content.items.map((product, index) => {
+            const Icon = itemIcons[index] ?? FaTree;
+
+            return (
               <div
-                className="h-40 w-full bg-center bg-cover relative"
-                style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.35)), url(${product.image})`,
-                }}
+                key={product.title}
+                className="border border-gray-100 bg-white overflow-hidden hover:-translate-y-[2px] transition duration-150"
               >
-                <span className="absolute top-3 right-3 px-3 py-1 text-xs font-Jost uppercase tracking-wide bg-Orange text-white">
-                  {content.badge}
-                </span>
-              </div>
+                <div className="relative h-40 w-full overflow-hidden bg-gradient-to-br from-AzulP via-AzulS to-[#93B9D3]">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.22),_transparent_52%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.16),_transparent_45%)]" />
 
-              <div className="p-6">
-                <h3 className="font-Jost text-GrayP font-semibold text-lg">
-                  {product.title}
-                </h3>
-                <p className="font-Jost text-GrayP mt-2">{product.desc}</p>
 
-                <ul className="mt-4 space-y-2">
-                  {product.points.map((item) => (
-                    <li
-                      key={item}
-                      className="font-Jost text-GrayP text-sm flex gap-2"
-                    >
-                      <span className="text-Orange mt-[2px]">-</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <div className="relative z-10 flex h-full items-center justify-between gap-4 px-6">
+                    <div className="max-w-[70%]">
+                      {/* <p className="font-Jost text-xs uppercase tracking-[0.22em] text-white/75">
+                        {content.kicker}
+                      </p> */}
+                      <p className="mt-2 font-Barlow text-2xl font-bold uppercase leading-tight text-white">
+                        {product.title}
+                      </p>
+                    </div>
+
+                    <div className="flex h-18 w-18 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/12 backdrop-blur-sm">
+                      <Icon className="text-4xl text-white" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <h3 className="font-Jost text-GrayP font-semibold text-lg">
+                    {product.title}
+                  </h3>
+                  <p className="font-Jost text-GrayP mt-2">{product.desc}</p>
+
+                  <ul className="mt-4 space-y-2">
+                    {product.points.map((item) => (
+                      <li
+                        key={item}
+                        className="font-Jost text-GrayP text-sm flex gap-2"
+                      >
+                        <span className="text-Orange mt-[2px]">-</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </article>
       </div>
     </section>
