@@ -6,9 +6,9 @@ import { getLocaleFromPathname, localizedPath } from "@/lib/i18n";
 
 const messages = {
   "pt-BR": {
-    home: "Inicio",
-    about: "Sobre Nos",
-    numbers: "Nossos Numeros",
+    home: "Início",
+    about: "Sobre Nós",
+    numbers: "Nossos Números",
     testimonials: "Depoimentos",
     contact: "Contato",
     menu: "Menu",
@@ -41,7 +41,7 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // Garante que a animação de entrada rode após o mount
+  // Garante que a animacao de entrada rode apos o mount.
   useEffect(() => {
     if (isOpen) {
       requestAnimationFrame(() => setMounted(true));
@@ -71,7 +71,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Desktop */}
       <nav className="hidden lg:block">
         <ul className="font-Jost font-medium text-white flex gap-4 uppercase tracking-wider">
           <li>
@@ -116,7 +115,6 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      {/* Mobile */}
       <div className="lg:hidden">
         <button
           type="button"
@@ -135,7 +133,7 @@ export default function Navbar() {
 
         {isOpen && (
           <>
-            {/* Overlay escuro atrás do drawer */}
+            {/* Overlay escuro atras do drawer */}
             <div
               className={`fixed inset-0 z-[998] bg-black/40 transition-opacity duration-300 ${
                 mounted ? "opacity-100" : "opacity-0"
@@ -144,7 +142,6 @@ export default function Navbar() {
               aria-hidden="true"
             />
 
-            {/* Drawer */}
             <div
               id="mobile-menu"
               role="dialog"
@@ -156,7 +153,6 @@ export default function Navbar() {
                 ${mounted ? "translate-x-0" : "translate-x-full"}`}
             >
               <div className="flex h-full flex-col px-6 py-8">
-                {/* Header */}
                 <div className="flex items-center justify-between border-b border-white/10 pb-5">
                   <p className="font-Barlow uppercase tracking-[0.18em] text-sm text-white/70">
                     {content.menu}
@@ -170,7 +166,6 @@ export default function Navbar() {
                   </button>
                 </div>
 
-                {/* Nav items */}
                 <nav className="flex flex-col gap-2 pt-8">
                   {navItems.map((item) =>
                     item.href ? (

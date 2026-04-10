@@ -7,24 +7,41 @@ type ProgressItem = {
   label: string;
   value: number;
   text: string;
+  fillClassName?: string;
+  textClassName?: string;
 };
 
 const messages = {
   "pt-BR": {
-    kicker: "Nossos numeros",
-    title: "Capacidade e controle de processo para entregar com confianca",
+    kicker: "Nossos números",
+    title: "Capacidade e controle de processo para entregar com confiança",
     description:
-      "Nossa operacao e integrada e focada em padronizacao, controle de umidade e rastreabilidade. Atuamos no mercado interno e tambem exportamos, mantendo consistencia e qualidade em cada lote.",
+      "Nossa operação é integrada e focada em padronização, controle de umidade e rastreabilidade. Atuamos no mercado interno e também exportamos, mantendo consistência e qualidade em cada lote.",
     supportText:
-      "Estrutura, pessoas e processo - para sustentar crescimento com responsabilidade.",
+      "Estrutura, pessoas e processo, para sustentar o crescimento com responsabilidade.",
+    forestCardTitle: "Floresta privada e gerenciada de maneira sustentável - Eloforest.",
+    forestBenefitsTitle: "Benefícios aos clientes:",
+    forestBenefits: [
+      "Melhor estabilidade de preços",
+      "Menor risco de falta e ruptura de abastecimento",
+      "Flexibilidade nas negociações",
+      "Melhor segurança na rastreabilidade",
+    ],
     cta: "Entrar em contato",
     note: "*Valores podem variar conforme disponibilidade e demanda.",
     progress: [
+      {
+        label: "Floresta própria",
+        value: 50,
+        text: "50%",
+        fillClassName: "bg-emerald-400",
+        textClassName: "text-emerald-950",
+      },
       { label: "Mercado interno", value: 70, text: "70%" },
-      { label: "Exportacao", value: 30, text: "30%" },
-      { label: "Alta capacidade", value: 100, text: "5.000 m3/mes" },
+      { label: "Exportação", value: 30, text: "30%" },
+      { label: "Alta capacidade", value: 100, text: "5.000 m3/mês" },
       { label: "Controle de umidade", value: 100, text: "12% (+/- 2%)" },
-      { label: "Paises atendidos", value: 100, text: "10+ paises" },
+      { label: "Países atendidos", value: 100, text: "10+ países" },
       { label: "Colaboradores", value: 100, text: "350+ pessoas" },
       { label: "Meta 2025", value: 100, text: "300 m3/dia" },
     ] as ProgressItem[],
@@ -34,10 +51,25 @@ const messages = {
     title: "Capacity and process control for reliable delivery",
     description:
       "Our operation is integrated and focused on standardization, moisture control, and traceability. We serve the domestic market and also export, maintaining consistency and quality in every batch.",
-    supportText: "Structure, people, and process - sustaining growth responsibly.",
+    supportText: "Structure, people, and process, sustaining growth responsibly.",
+    forestCardTitle: "Private forest managed sustainably - Eloforest.",
+    forestBenefitsTitle: "Client benefits:",
+    forestBenefits: [
+      "Better price stability",
+      "Lower risk of shortage and supply disruption",
+      "More flexibility in negotiations",
+      "Greater security in traceability",
+    ],
     cta: "Get in touch",
     note: "*Values may vary according to availability and demand.",
     progress: [
+      {
+        label: "Owned forest",
+        value: 50,
+        text: "50%",
+        fillClassName: "bg-emerald-400",
+        textClassName: "text-emerald-950",
+      },
       { label: "Domestic market", value: 70, text: "70%" },
       { label: "Exports", value: 30, text: "30%" },
       { label: "High capacity", value: 100, text: "5,000 m3/month" },
@@ -49,7 +81,13 @@ const messages = {
   },
 } as const;
 
-function ProgressBar({ label, value, text }: ProgressItem) {
+function ProgressBar({
+  label,
+  value,
+  text,
+  fillClassName,
+  textClassName,
+}: ProgressItem) {
   const [fill, setFill] = useState(0);
 
   useEffect(() => {
@@ -62,10 +100,16 @@ function ProgressBar({ label, value, text }: ProgressItem) {
       <p className="font-Jost text-white mb-1">{label}</p>
       <div className="w-full bg-GrayP/60 h-5 overflow-hidden">
         <div
-          className="flex items-center h-5 bg-AzulC transition-[width] duration-1000 ease-out"
+          className={`flex items-center h-5 transition-[width] duration-1000 ease-out ${
+            fillClassName ?? "bg-AzulC"
+          }`}
           style={{ width: `${fill}%` }}
         >
-          <p className="pl-4 text-sm text-Orange font-semibold whitespace-nowrap">
+          <p
+            className={`pl-4 text-sm font-bold uppercase whitespace-nowrap ${
+              textClassName ?? "text-Orange"
+            }`}
+          >
             {text}
           </p>
         </div>
@@ -98,6 +142,26 @@ export default function Production({ locale }: { locale: Locale }) {
           <p className="mt-4 font-Jost text-white/80 leading-relaxed">
             {content.supportText}
           </p>
+
+          <div className="mt-6 rounded-3xl border border-emerald-300/25 bg-white/8 backdrop-blur-sm p-6 shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
+            <p className="font-Barlow uppercase text-lg text-emerald-300 font-bold leading-snug">
+              {content.forestCardTitle}
+            </p>
+            <p className="mt-4 font-Jost font-semibold text-white">
+              {content.forestBenefitsTitle}
+            </p>
+            <ul className="mt-3 space-y-2">
+              {content.forestBenefits.map((benefit) => (
+                <li
+                  key={benefit}
+                  className="flex items-start gap-3 font-Jost text-white/90 leading-relaxed"
+                >
+                  <span className="mt-1.5 inline-flex h-2 w-2 rounded-full bg-emerald-300" />
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="border border-AzulC w-[200px] mt-8" />
 

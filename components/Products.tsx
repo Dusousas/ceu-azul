@@ -21,15 +21,15 @@ const itemIcons = [
 
 const messages = {
   "pt-BR": {
-    kicker: "Produtos e servicos",
-    title: "Serraria focada em precisao e qualidade de corte",
+    kicker: "Produtos e serviços",
+    title: "Serraria focada em precisão e qualidade de corte",
     description:
-      "Do desdobro ao acabamento, entregamos madeira serrada, beneficiada e pallets para logistica, construcao e movelaria. Controle de umidade, repetitividade e acompanhamento tecnico para evitar retrabalho em obra ou fabrica.",
-    quoteCta: "Solicitar orcamento",
-    portfolioCta: "Ver portfolio",
+      "Do desdobro ao acabamento, entregamos madeira serrada, beneficiada e pallets para logística, construção e movelaria. Controle de umidade, repetitividade e acompanhamento técnico para evitar retrabalho em obra ou fábrica.",
+    quoteCta: "Solicitar orçamento",
+    portfolioCta: "Ver portfólio",
     badge: "Sob medida",
     highlights: [
-      "Corte sob medida com revisao de bitolas",
+      "Corte sob medida com revisão de bitolas",
       "Secagem, beneficiamento e rastreabilidade",
       "Pinus e eucalipto de origem controlada",
       "Entrega programada e lotes repetitivos",
@@ -37,16 +37,16 @@ const messages = {
     items: [
       {
         title: "Pallets e embalagens",
-        desc: "Pallets para exportacao, one way e sob medida para logistica e industria.",
+        desc: "Pallets para exportação, one way e sob medida para logística e indústria.",
         points: [
-          "Padroes PBR, PBR leve e medidas especiais",
-          "Madeira seca e controle de umidade para exportacao",
-          "Reforcos, tacos e travessas conforme carga",
+          "Padrões PBR, PBR leve e medidas especiais",
+          "Madeira seca e controle de umidade para exportação",
+          "Reforços, tacos e travessas conforme carga",
         ],
       },
       {
         title: "Madeira serrada",
-        desc: "Pranchas, caibros, vigas e sarrafos cortados com padrao constante.",
+        desc: "Pranchas, caibros, vigas e sarrafos cortados com padrão constante.",
         points: [
           "Pinus e eucalipto com rastreabilidade",
           "Bitolas constantes e cortes repetitivos",
@@ -55,25 +55,25 @@ const messages = {
       },
       {
         title: "Madeiras beneficiadas",
-        desc: "Aparelhada, lixada ou tratada para uso direto em obras e moveis.",
+        desc: "Aparelhada, lixada ou tratada para uso direto em obras e móveis.",
         points: [
           "Cepilhada e aparelhada com acabamento fino",
-          "Tratamento preventivo e impregnacao",
-          "Pecas calibradas para montagem rapida",
+          "Tratamento preventivo e impregnação",
+          "Peças calibradas para montagem rápida",
         ],
       },
       {
         title: "Caibros e vigas estruturais",
-        desc: "Componentes para coberturas, galpoes leves e estruturas temporarias.",
+        desc: "Componentes para coberturas, galpões leves e estruturas temporárias.",
         points: [
-          "Calculos de corte para minimizar desperdicio",
-          "Bitolas indicadas para carga e vao",
-          "Entrega em kit com identificacao",
+          "Cálculos de corte para minimizar desperdício",
+          "Bitolas indicadas para carga e vão",
+          "Entrega em kit com identificação",
         ],
       },
       {
-        title: "Componentes para moveis",
-        desc: "Sarrafos, paineis colados e pecas cortadas para producao moveleira.",
+        title: "Componentes para móveis",
+        desc: "Sarrafos, painéis colados e peças cortadas para produção moveleira.",
         points: [
           "Secagem controlada para estabilidade",
           "Selecionada para colagem e usinagem",
@@ -82,11 +82,11 @@ const messages = {
       },
       {
         title: "Subprodutos aproveitados",
-        desc: "Cavaco e serragem para biomassa, cama de aviario e absorcao.",
+        desc: "Cavaco e serragem para biomassa, cama de aviário e absorção.",
         points: [
           "Volumes fracionados ou a granel",
           "Umidade acompanhada para melhor uso",
-          "Opcao de retirada no patio ou entrega",
+          "Opção de retirada no pátio ou entrega",
         ],
       },
     ],
@@ -201,12 +201,12 @@ export default function Products({ locale }: { locale: Locale }) {
             >
               {content.quoteCta}
             </a>
-            <Link
+            {/* <Link
               className="uppercase tracking-wider font-Jost text-AzulP border border-AzulS hover:bg-AzulS hover:text-white py-4 px-6 text-center"
               href="/portfolio"
             >
               {content.portfolioCta}
-            </Link>
+            </Link> */}
           </div>
         </article>
 

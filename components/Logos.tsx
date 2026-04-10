@@ -6,18 +6,19 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const logos = [
-  "/icons/woodson.png",
-  "/icons/woodson.png",
-  "/icons/woodson.png",
-  "/icons/woodson.png",
-  "/icons/woodson.png",
-  "/icons/woodson.png",
+  "/logos/logo1.webp",
+  "/logos/logo2.webp",
+  "/logos/logo3.webp",
+  "/logos/logo4.webp",
+  "/logos/logo5.webp",
+  "/logos/logo6.webp",
+  "/logos/logo7.webp",
 ];
 
 export default function Logos() {
   return (
     <>
-      <section className="bg-white py-20">
+      <section className="bg-white py-10">
         <div className="maxW">
           <Swiper
             modules={[Autoplay]}
@@ -36,8 +37,14 @@ export default function Logos() {
             className="flex items-center"
           >
             {logos.concat(logos).map((logo, index) => (
-              <SwiperSlide key={index} className="flex justify-center">
-                <img className="w-[130px]" src={logo} alt={`Logo ${index + 1}`} />
+              <SwiperSlide key={index} className="flex">
+                <div className="flex h-[110px] w-full items-center justify-center px-4">
+                  <img
+                    className="max-h-[72px] w-auto max-w-[170px] object-contain"
+                    src={logo}
+                    alt={`Logo ${index + 1}`}
+                  />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

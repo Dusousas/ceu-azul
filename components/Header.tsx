@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header className="z-30 absolute w-full">
-      {/* backdrop-blur isolado num pseudo-layer para não criar stacking context nos filhos fixed */}
+      {/* Backdrop blur isolado em uma pseudo-layer para nao criar stacking context nos filhos fixed. */}
       <div className="absolute inset-0 backdrop-blur-[6px] border-b border-white pointer-events-none" />
 
       <div className="relative flex justify-between py-2 w-full items-center px-4 lg:px-20">
@@ -19,7 +19,7 @@ export default function Header() {
           <img
             className="w-[80px]"
             src="/logo.png"
-            alt="Logo da Serraria Ceu Azul"
+            alt="Logo da Serraria Céu Azul"
           />
         </a>
 

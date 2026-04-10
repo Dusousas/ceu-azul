@@ -5,7 +5,7 @@ const messages = {
   "pt-BR": {
     name: "Seu nome",
     company: "Sua empresa",
-    email: "Seu email",
+    email: "Seu e-mail",
     subject: "Assunto",
     message: "Sua mensagem",
     submit: "Enviar",

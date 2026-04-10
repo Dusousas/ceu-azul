@@ -3,20 +3,20 @@ import { type Locale, localizedPath } from "@/lib/i18n";
 
 const messages = {
   "pt-BR": {
-    kicker: "Extraida com cuidado. Entregue com confianca.",
-    title: "Madeira com proposito.",
+    kicker: "Extraída com cuidado. Entregue com confiança.",
+    title: "Madeira com propósito.",
     description:
-      "A Serraria Ceu Azul atua no processamento de madeira com operacao integrada - do corte e secagem ao produto final - garantindo consistencia, rastreabilidade e responsabilidade ambiental em cada entrega.",
-    productsLabel: "Produtos e servicos",
+      "A Serraria Céu Azul atua no processamento de madeira com operação integrada, do corte e secagem ao produto final, garantindo consistência, rastreabilidade e responsabilidade ambiental em cada entrega.",
+    productsLabel: "Produtos e serviços",
     specs:
-      "Especificacoes: umidade controlada (12% +/- 2%) e padronizacao dimensional.",
-    historyCta: "Nossa Historia",
+      "Especificações: umidade controlada (12% +/- 2%) e padronização dimensional.",
+    historyCta: "Nossa História",
     contactCta: "Entrar em contato",
     products: [
-      { title: "Pallets", desc: "Exportacao, one way e sob medida." },
-      { title: "Madeira serrada", desc: "Padrao e qualidade para aplicacoes." },
-      { title: "Cavaco e serragem", desc: "Aproveitamento com eficiencia." },
-      { title: "Caixas e embalagens", desc: "Solucoes para transporte." },
+      { title: "Pallets", desc: "Exportação, one way e sob medida." },
+      { title: "Madeira serrada", desc: "Padrão e qualidade para aplicações." },
+      { title: "Cavaco e serragem", desc: "Aproveitamento com eficiência." },
+      { title: "Caixas e embalagens", desc: "Soluções para transporte." },
     ],
   },
   "en-US": {

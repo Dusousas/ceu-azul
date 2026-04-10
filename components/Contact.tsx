@@ -5,24 +5,24 @@ import { type Locale } from "@/lib/i18n";
 const messages = {
   "pt-BR": {
     kicker: "Vamos trabalhar juntos",
-    title: "Entre em contato com a Serraria Ceu Azul",
+    title: "Entre em contato com a Serraria Céu Azul",
     description:
-      "Solicite um orcamento, tire duvidas comerciais e fale com nosso time para encontrar a melhor solucao em madeira para sua operacao.",
-    whatsappHelp: "Resposta rapida para orcamentos",
-    emailHelp: "Envie especificacoes e volumes",
+      "Solicite um orçamento, tire dúvidas comerciais e fale com nosso time para encontrar a melhor solução em madeira para sua operação.",
+    whatsappHelp: "Resposta rápida para orçamentos",
+    emailHelp: "Envie especificações e volumes",
     linkedinHelp: "Acompanhe novidades e estrutura",
-    phoneHelp: "Atendimento em horario comercial",
-    addressLabel: "Endereco",
+    phoneHelp: "Atendimento em horário comercial",
+    addressLabel: "Endereço",
     address:
-      "Rodovia Francisco Alves Negrao (SP-258), Km 331, bairro Ibiti, Itarare - SP",
+      "Rodovia Francisco Alves Negrão (SP-258), Km 331, bairro Ibiti, Itararé - SP",
     zipCode: "CEP 18467-899",
-    hoursLabel: "Horario de funcionamento",
+    hoursLabel: "Horário de funcionamento",
     weekDays: "Segunda a Sexta",
     hours: "08:00 - 17:00",
     phoneLabel: "Telefone",
-    formTitle: "Solicite um orcamento",
+    formTitle: "Solicite um orçamento",
     formDescription:
-      "Preencha o formulario e nossa equipe retorna com as proximas etapas. Se puder, informe tipo de madeira, medidas e volume.",
+      "Preencha o formulário e nossa equipe retorna com as próximas etapas. Se puder, informe tipo de madeira, medidas e volume.",
   },
   "en-US": {
     kicker: "Let's work together",
@@ -53,7 +53,7 @@ export default function Contact({ locale }: { locale: Locale }) {
   return (
     <section id="contato" className="w-full bg-white">
       <div className="flex flex-col w-full items-stretch lg:flex-row">
-        <article className="py-20 w-full lg:w-1/2 px-4 lg:px-20 flex flex-col justify-center">
+        <article className="py-14 lg:py-16 w-full lg:w-1/2 px-4 lg:px-16 flex flex-col justify-center">
           <p className="font-Jost uppercase tracking-wider font-medium text-AzulP text-center lg:text-left">
             {content.kicker}
           </p>
@@ -62,11 +62,11 @@ export default function Contact({ locale }: { locale: Locale }) {
             {content.title}
           </h2>
 
-          <p className="font-Jost mt-6 text-GrayP lg:max-w-[560px] text-center lg:text-left">
+          <p className="font-Jost mt-4 text-GrayP lg:max-w-[560px] text-center lg:text-left">
             {content.description}
           </p>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
               href="https://wa.me/5547997316610"
               target="_blank"
@@ -94,9 +94,7 @@ export default function Contact({ locale }: { locale: Locale }) {
                   </p>
                 </div>
 
-                <span className="text-GrayP/40 group-hover:text-GrayP transition">
-                  ↗
-                </span>
+                <span className="text-GrayP/40 group-hover:text-GrayP transition">↗</span>
               </div>
             </a>
 
@@ -128,9 +126,7 @@ export default function Contact({ locale }: { locale: Locale }) {
                   </p>
                 </div>
 
-                <span className="text-GrayP/40 group-hover:text-GrayP transition">
-                  ↗
-                </span>
+                <span className="text-GrayP/40 group-hover:text-GrayP transition">↗</span>
               </div>
             </a>
 
@@ -161,9 +157,7 @@ export default function Contact({ locale }: { locale: Locale }) {
                   </p>
                 </div>
 
-                <span className="text-GrayP/40 group-hover:text-GrayP transition">
-                  ↗
-                </span>
+                <span className="text-GrayP/40 group-hover:text-GrayP transition">↗</span>
               </div>
             </a>
 
@@ -193,43 +187,45 @@ export default function Contact({ locale }: { locale: Locale }) {
                   </p>
                 </div>
 
-                <span className="text-GrayP/40 group-hover:text-GrayP transition">
-                  ↗
-                </span>
+                <span className="text-GrayP/40 group-hover:text-GrayP transition">↗</span>
               </div>
             </a>
           </div>
 
-          <div className="mt-12">
-            <div className="border my-10 lg:max-w-[560px]" />
+          <div className="mt-8 w-full">
+            <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-6 md:gap-8 items-start">
+                <div className="min-w-0">
+                  <p className="font-Jost uppercase tracking-wider font-medium text-AzulP">
+                    {content.addressLabel}
+                  </p>
 
-            <p className="font-Jost uppercase tracking-wider font-medium text-AzulP">
-              {content.addressLabel}
-            </p>
+                  <p className="font-Jost mt-3 text-GrayP leading-relaxed">
+                    {content.address}
+                    <br />
+                    {content.zipCode}
+                  </p>
+                </div>
 
-            <p className="font-Jost mt-3 text-GrayP lg:max-w-[560px]">
-              {content.address}
-              <br />
-              {content.zipCode}
-            </p>
-
-            <div className="border my-10 lg:max-w-[560px]" />
-
-            <p className="font-Jost uppercase tracking-wider font-medium text-AzulP">
-              {content.hoursLabel}
-            </p>
-            <p className="font-Jost mt-3 text-GrayP">{content.weekDays}</p>
-            <p className="font-Jost text-GrayP">{content.hours}</p>
+                <div className="min-w-0 md:border-l md:border-gray-100 md:pl-8">
+                  <p className="font-Jost uppercase tracking-wider font-medium text-AzulP">
+                    {content.hoursLabel}
+                  </p>
+                  <p className="font-Jost mt-3 text-GrayP">{content.weekDays}</p>
+                  <p className="font-Jost text-GrayP">{content.hours}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
-        <article className="bg-[#F6F6F6] w-full lg:w-1/2 py-20 px-4 lg:px-20 flex items-center">
+        <article className="bg-[#F6F6F6] w-full lg:w-1/2 py-14 lg:py-16 px-4 lg:px-16 flex items-center">
           <div className="w-full">
-            <h3 className="font-Barlow uppercase font-bold text-GrayP text-2xl mb-6">
+            <h3 className="font-Barlow uppercase font-bold text-GrayP text-2xl mb-4">
               {content.formTitle}
             </h3>
 
-            <p className="font-Jost text-GrayP mb-8">
+            <p className="font-Jost text-GrayP mb-6">
               {content.formDescription}
             </p>
 
