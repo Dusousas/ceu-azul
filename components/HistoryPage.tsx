@@ -72,6 +72,74 @@ const messages = {
     close: "Fechar",
     modalVideoTitle: "História da Serraria Céu Azul",
   },
+  "es-ES": {
+    heroKicker: "Extraída con cuidado. Entregada con confianza.",
+    heroTitle: "Tradición, tecnología y responsabilidad en el procesamiento de madera",
+    heroDescription:
+      "Serraria Céu Azul nació con un propósito claro: transformar madera en soluciones confiables, manteniendo el respeto por el bosque, las personas y el futuro.",
+    watchStory: "Ver historia",
+    seeMission: "Ver misión, visión y valores",
+    stats: [
+      { label: "Inicio de las operaciones", value: "2023" },
+      { label: "Experiencia del grupo", value: "30+ años" },
+      { label: "Compromiso", value: "Calidad • Ética • Sostenibilidad" },
+    ],
+    videoTitle: "Video institucional Céu Azul",
+    clickToWatch: "Haga clic para ver",
+    storyCardTitle: "Nuestra historia y propósito",
+    storyCardDescription: [
+      "Serraria Céu Azul es una empresa de procesamiento de madera dedicada al suministro de productos aserrados de alta calidad. Todo nuestro proceso productivo es totalmente integrado y realizado internamente, desde el corte y secado hasta el producto final.",
+      "Actuamos con compromiso con la excelencia, integrando responsabilidad ambiental, ética e innovación en todas las etapas de nuestras operaciones. Construimos relaciones transparentes y de largo plazo, contribuyendo al fortalecimiento del sector maderero y a un futuro más responsable y sostenible.",
+    ],
+    openVideo: "Abrir video",
+    sectionTitle: "Misión, Visión y Valores de Céu Azul",
+    tags: ["Ética", "Sostenibilidad", "Calidad", "Transparencia"],
+    missionTitle: "Misión",
+    missionTopics: [
+      "Consolidarse como referencia de confianza en el suministro de madera de alta calidad.",
+      "Desarrollar soluciones innovadoras que generen valor real para nuestros clientes.",
+      "Actuar con eficiencia operativa, confiabilidad y profesionalismo.",
+      "Garantizar la consistencia y la calidad de los productos suministrados.",
+      "Honrar los compromisos de entrega con puntualidad.",
+      "Conducir nuestras operaciones con responsabilidad ambiental y respeto por los recursos naturales.",
+    ],
+    visionTitle: "Visión",
+    visionText:
+      "Ser reconocida por los clientes como una socia estratégica, contribuyendo al crecimiento económico de sus negocios y al desarrollo sostenible.",
+    valuesTitle: "Valores",
+    values: [
+      ["Integridad y confianza", "Actuamos con transparencia y respeto."],
+      ["Innovación con responsabilidad", "Buscamos soluciones eficientes."],
+      ["Profesionalismo y ética", "Excelencia operativa y estandarización."],
+      ["Compromiso con las personas", "Valoramos a los colaboradores y a la comunidad."],
+    ] as Array<[string, string]>,
+    whyTitle: "¿Por qué Serraria Céu Azul?",
+    whyTextOne:
+      "Somos una empresa brasileña, de origen familiar, ubicada en Itararé - São Paulo, con más de 350 colaboradores.",
+    whyTextTwo:
+      "Exportamos a más de 10 países en todo el mundo, manteniendo consistencia y responsabilidad ambiental.",
+    whyCards: [
+      {
+        title: "Experiencia en la industria",
+        desc: "Décadas de experiencia y más de 30 años de referencia en el sector.",
+      },
+      {
+        title: "Alta capacidad productiva",
+        desc: "Más de 5.000 m3 mensuales con equipos de alta tecnología.",
+      },
+      {
+        title: "Soluciones personalizadas",
+        desc: "Atención personalizada para diferentes aplicaciones y mercados.",
+      },
+      {
+        title: "Madera trazable",
+        desc: "Compromiso real con origen controlado y responsabilidad ambiental.",
+      },
+    ],
+    modalTitle: "Video • Nuestra historia y propósito",
+    close: "Cerrar",
+    modalVideoTitle: "Historia de Serraria Céu Azul",
+  },
   "en-US": {
     heroKicker: "Carefully sourced. Reliably delivered.",
     heroTitle: "Tradition, technology, and responsibility in wood processing",
@@ -152,42 +220,23 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
         <div className="bgMain1 w-full py-20 mt-[120px]">
           <div className="maxW z-10 text-white top-[56px] py-16 lg:py-24">
             <div className="max-w-[980px]">
-              <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">
-                {content.heroKicker}
-              </p>
-              <h1 className="font-Barlow uppercase font-bold text-white mt-3 text-3xl sm:text-4xl lg:text-5xl leading-tight">
-                {content.heroTitle}
-              </h1>
-              <p className="font-Jost mt-6 text-base sm:text-lg lg:w-[80%] text-white/90 leading-relaxed">
-                {content.heroDescription}
-              </p>
+              <p className="font-Jost uppercase tracking-wider font-medium text-AzulC">{content.heroKicker}</p>
+              <h1 className="font-Barlow uppercase font-bold text-white mt-3 text-3xl sm:text-4xl lg:text-5xl leading-tight">{content.heroTitle}</h1>
+              <p className="font-Jost mt-6 text-base sm:text-lg lg:w-[80%] text-white/90 leading-relaxed">{content.heroDescription}</p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <button
-                  onClick={() => setIsVideoOpen(true)}
-                  className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-white/90 text-AzulP px-5 py-3 font-Jost font-medium shadow-sm hover:bg-white transition active:scale-[0.98]"
-                >
+                <button onClick={() => setIsVideoOpen(true)} className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-white/90 text-AzulP px-5 py-3 font-Jost font-medium shadow-sm hover:bg-white transition active:scale-[0.98]">
                   {content.watchStory}
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-AzulP/10">
-                    ▶
-                  </span>
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-AzulP/10">▶</span>
                 </button>
-                <a
-                  href="#missao"
-                  className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/10 px-5 py-3 font-Jost font-medium text-white hover:bg-white/15 transition active:scale-[0.98]"
-                >
+                <a href="#missao" className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/10 px-5 py-3 font-Jost font-medium text-white hover:bg-white/15 transition active:scale-[0.98]">
                   {content.seeMission}
                 </a>
               </div>
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {content.stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur px-5 py-4 hover:bg-white/15 transition"
-                  >
+                  <div key={stat.label} className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur px-5 py-4 hover:bg-white/15 transition">
                     <p className="font-Jost text-white/70 text-sm">{stat.label}</p>
-                    <p className="font-Barlow uppercase font-bold text-white text-lg mt-1">
-                      {stat.value}
-                    </p>
+                    <p className="font-Barlow uppercase font-bold text-white text-lg mt-1">{stat.value}</p>
                   </div>
                 ))}
               </div>
@@ -198,20 +247,12 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
 
       <section>
         <div className="maxW">
-          <section
-            id="missao"
-            className="mt-14 bg-white border border-gray-100 p-8 rounded-2xl shadow-sm"
-          >
+          <section id="missao" className="mt-14 bg-white border border-gray-100 p-8 rounded-2xl shadow-sm">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-              <h2 className="font-Barlow uppercase text-GrayP font-bold text-2xl sm:text-3xl">
-                {content.sectionTitle}
-              </h2>
+              <h2 className="font-Barlow uppercase text-GrayP font-bold text-2xl sm:text-3xl">{content.sectionTitle}</h2>
               <div className="flex gap-2 flex-wrap">
                 {content.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center rounded-full border border-gray-200 px-3 py-1 text-xs font-Jost text-GrayP"
-                  >
+                  <span key={tag} className="inline-flex items-center rounded-full border border-gray-200 px-3 py-1 text-xs font-Jost text-GrayP">
                     {tag}
                   </span>
                 ))}
@@ -220,15 +261,10 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
 
             <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="rounded-2xl border border-gray-100 p-6 hover:shadow-md transition">
-                <h4 className="font-Barlow text-AzulS uppercase font-semibold">
-                  {content.missionTitle}
-                </h4>
+                <h4 className="font-Barlow text-AzulS uppercase font-semibold">{content.missionTitle}</h4>
                 <ul className="font-Jost text-GrayP mt-4 space-y-3">
                   {content.missionTopics.map((topic) => (
-                    <li
-                      key={topic}
-                      className="flex gap-3 items-start rounded-xl border border-gray-100 p-3 hover:bg-gray-50 transition"
-                    >
+                    <li key={topic} className="flex gap-3 items-start rounded-xl border border-gray-100 p-3 hover:bg-gray-50 transition">
                       <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-AzulP" />
                       <p className="leading-relaxed">{topic}</p>
                     </li>
@@ -236,23 +272,14 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
                 </ul>
               </div>
               <div className="rounded-2xl border border-gray-100 p-6 hover:shadow-md transition">
-                <h4 className="font-Barlow text-AzulS uppercase font-semibold">
-                  {content.visionTitle}
-                </h4>
-                <p className="font-Jost text-GrayP mt-4 leading-relaxed">
-                  {content.visionText}
-                </p>
+                <h4 className="font-Barlow text-AzulS uppercase font-semibold">{content.visionTitle}</h4>
+                <p className="font-Jost text-GrayP mt-4 leading-relaxed">{content.visionText}</p>
               </div>
               <div className="rounded-2xl border border-gray-100 p-6 hover:shadow-md transition">
-                <h4 className="font-Barlow text-AzulS uppercase font-semibold">
-                  {content.valuesTitle}
-                </h4>
+                <h4 className="font-Barlow text-AzulS uppercase font-semibold">{content.valuesTitle}</h4>
                 <ul className="font-Jost text-GrayP mt-4 space-y-3">
                   {content.values.map(([title, description]) => (
-                    <li
-                      key={title}
-                      className="flex gap-3 items-start rounded-xl border border-gray-100 p-3 hover:bg-gray-50 transition"
-                    >
+                    <li key={title} className="flex gap-3 items-start rounded-xl border border-gray-100 p-3 hover:bg-gray-50 transition">
                       <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-AzulP" />
                       <div>
                         <p className="font-Jost font-semibold text-GrayP">
@@ -269,28 +296,12 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
           <article className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="relative rounded-2xl overflow-hidden shadow-md border border-gray-100 bg-white group">
               <div className="relative w-full h-[280px] sm:h-[360px] overflow-hidden">
-                <iframe
-                  className="w-full h-full pointer-events-none"
-                  src="https://www.youtube.com/embed/hOsLsAphsH8?controls=0&mute=1&loop=1&playlist=hOsLsAphsH8"
-                  title={content.videoTitle}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                />
+                <iframe className="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/hOsLsAphsH8?controls=0&mute=1&loop=1&playlist=hOsLsAphsH8" title={content.videoTitle} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              <button
-                onClick={() => setIsVideoOpen(true)}
-                className="absolute inset-0 flex items-center justify-center"
-                aria-label={content.openVideo}
-              >
+              <button onClick={() => setIsVideoOpen(true)} className="absolute inset-0 flex items-center justify-center" aria-label={content.openVideo}>
                 <div className="bg-white/85 text-AzulP p-4 rounded-full cursor-pointer shadow-sm hover:bg-white transition active:scale-[0.98]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path d="M5 3v18l15-9L5 3z" fill="currentColor" />
                   </svg>
                 </div>
@@ -298,17 +309,13 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur px-4 py-3">
                   <p className="font-Jost text-white/80 text-sm">{content.clickToWatch}</p>
-                  <p className="font-Barlow uppercase text-white font-bold">
-                    {content.storyCardTitle}
-                  </p>
+                  <p className="font-Barlow uppercase text-white font-bold">{content.storyCardTitle}</p>
                 </div>
               </div>
             </div>
 
             <div className="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm hover:shadow-md transition">
-              <h3 className="font-Barlow uppercase text-AzulS font-semibold text-xl">
-                {content.storyCardTitle}
-              </h3>
+              <h3 className="font-Barlow uppercase text-AzulS font-semibold text-xl">{content.storyCardTitle}</h3>
               <div className="mt-4 space-y-4">
                 {content.storyCardDescription.map((paragraph) => (
                   <p key={paragraph} className="font-Jost text-GrayP leading-relaxed">
@@ -317,10 +324,7 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
                 ))}
               </div>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <button
-                  onClick={() => setIsVideoOpen(true)}
-                  className="rounded-xl cursor-pointer bg-AzulP text-white px-5 py-3 font-Jost font-medium hover:opacity-90 transition active:scale-[0.98]"
-                >
+                <button onClick={() => setIsVideoOpen(true)} className="rounded-xl cursor-pointer bg-AzulP text-white px-5 py-3 font-Jost font-medium hover:opacity-90 transition active:scale-[0.98]">
                   {content.openVideo}
                 </button>
               </div>
@@ -330,28 +334,15 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
           <section className="mt-10 bg-white border border-gray-100 p-8 rounded-2xl shadow-sm">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
               <div className="lg:w-[52%]">
-                <h2 className="font-Barlow uppercase text-GrayP font-bold text-2xl sm:text-3xl">
-                  {content.whyTitle}
-                </h2>
-                <p className="font-Jost text-GrayP mt-4 leading-relaxed">
-                  {content.whyTextOne}
-                </p>
-                <p className="font-Jost text-GrayP mt-4 leading-relaxed">
-                  {content.whyTextTwo}
-                </p>
+                <h2 className="font-Barlow uppercase text-GrayP font-bold text-2xl sm:text-3xl">{content.whyTitle}</h2>
+                <p className="font-Jost text-GrayP mt-4 leading-relaxed">{content.whyTextOne}</p>
+                <p className="font-Jost text-GrayP mt-4 leading-relaxed">{content.whyTextTwo}</p>
               </div>
               <div className="lg:w-[44%] grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {content.whyCards.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl border border-gray-100 p-5 hover:shadow-md transition bg-white"
-                  >
-                    <p className="font-Barlow uppercase font-semibold text-AzulS">
-                      {item.title}
-                    </p>
-                    <p className="font-Jost text-GrayP mt-2 leading-relaxed text-sm">
-                      {item.desc}
-                    </p>
+                  <div key={item.title} className="rounded-2xl border border-gray-100 p-5 hover:shadow-md transition bg-white">
+                    <p className="font-Barlow uppercase font-semibold text-AzulS">{item.title}</p>
+                    <p className="font-Jost text-GrayP mt-2 leading-relaxed text-sm">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -361,33 +352,16 @@ export default function HistoryPage({ locale }: { locale: Locale }) {
       </section>
 
       {isVideoOpen && (
-        <div
-          className="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={() => setIsVideoOpen(false)}
-        >
-          <div
-            className="w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-xl"
-            onClick={(event) => event.stopPropagation()}
-          >
+        <div className="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" onClick={() => setIsVideoOpen(false)}>
+          <div className="w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-xl" onClick={(event) => event.stopPropagation()}>
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-              <p className="font-Barlow uppercase font-bold text-GrayP">
-                {content.modalTitle}
-              </p>
-              <button
-                onClick={() => setIsVideoOpen(false)}
-                className="rounded-lg px-3 cursor-pointer py-2 font-Jost text-GrayP hover:bg-gray-50 transition"
-              >
+              <p className="font-Barlow uppercase font-bold text-GrayP">{content.modalTitle}</p>
+              <button onClick={() => setIsVideoOpen(false)} className="rounded-lg px-3 cursor-pointer py-2 font-Jost text-GrayP hover:bg-gray-50 transition">
                 {content.close}
               </button>
             </div>
             <div className="aspect-video bg-black">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/hOsLsAphsH8?autoplay=1"
-                title={content.modalVideoTitle}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/hOsLsAphsH8?autoplay=1" title={content.modalVideoTitle} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             </div>
           </div>
         </div>

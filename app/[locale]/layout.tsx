@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, locales } from "@/lib/i18n";
 
 export default async function LocaleLayout({
   children,
@@ -19,5 +19,5 @@ export default async function LocaleLayout({
 }
 
 export function generateStaticParams() {
-  return [{ locale: "pt-BR" }, { locale: "en-US" }];
+  return locales.map((locale) => ({ locale }));
 }

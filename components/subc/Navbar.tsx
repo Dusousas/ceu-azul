@@ -14,6 +14,15 @@ const messages = {
     menu: "Menu",
     close: "Fechar",
   },
+  "es-ES": {
+    home: "Inicio",
+    about: "Sobre Nosotros",
+    numbers: "Nuestros Números",
+    testimonials: "Testimonios",
+    contact: "Contacto",
+    menu: "Menú",
+    close: "Cerrar",
+  },
   "en-US": {
     home: "Home",
     about: "About",
@@ -41,7 +50,6 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // Garante que a animacao de entrada rode apos o mount.
   useEffect(() => {
     if (isOpen) {
       requestAnimationFrame(() => setMounted(true));
@@ -77,38 +85,22 @@ export default function Navbar() {
             <a href={homePath}>{content.home}</a>
           </li>
           <li>
-            <button
-              type="button"
-              onClick={() => goTo("sobre-nos")}
-              className="hover:opacity-90 uppercase cursor-pointer"
-            >
+            <button type="button" onClick={() => goTo("sobre-nos")} className="hover:opacity-90 uppercase cursor-pointer">
               {content.about}
             </button>
           </li>
           <li>
-            <button
-              type="button"
-              onClick={() => goTo("numeros")}
-              className="hover:opacity-90 uppercase cursor-pointer"
-            >
+            <button type="button" onClick={() => goTo("numeros")} className="hover:opacity-90 uppercase cursor-pointer">
               {content.numbers}
             </button>
           </li>
           <li>
-            <button
-              type="button"
-              onClick={() => goTo("depoimentos")}
-              className="hover:opacity-90 uppercase cursor-pointer"
-            >
+            <button type="button" onClick={() => goTo("depoimentos")} className="hover:opacity-90 uppercase cursor-pointer">
               {content.testimonials}
             </button>
           </li>
           <li>
-            <button
-              type="button"
-              onClick={() => goTo("contato")}
-              className="hover:opacity-90 uppercase cursor-pointer"
-            >
+            <button type="button" onClick={() => goTo("contato")} className="hover:opacity-90 uppercase cursor-pointer">
               {content.contact}
             </button>
           </li>
@@ -133,7 +125,6 @@ export default function Navbar() {
 
         {isOpen && (
           <>
-            {/* Overlay escuro atras do drawer */}
             <div
               className={`fixed inset-0 z-[998] bg-black/40 transition-opacity duration-300 ${
                 mounted ? "opacity-100" : "opacity-0"

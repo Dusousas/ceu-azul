@@ -46,6 +46,40 @@ const messages = {
       { label: "Meta 2025", value: 100, text: "300 m3/dia" },
     ] as ProgressItem[],
   },
+  "es-ES": {
+    kicker: "Nuestros números",
+    title: "Capacidad y control de proceso para entregar con confianza",
+    description:
+      "Nuestra operación es integrada y está enfocada en estandarización, control de humedad y trazabilidad. Actuamos en el mercado interno y también exportamos, manteniendo consistencia y calidad en cada lote.",
+    supportText:
+      "Estructura, personas y proceso, para sostener el crecimiento con responsabilidad.",
+    forestCardTitle: "Bosque privado y gestionado de manera sostenible - Eloforest.",
+    forestBenefitsTitle: "Beneficios para los clientes:",
+    forestBenefits: [
+      "Mejor estabilidad de precios",
+      "Menor riesgo de falta y ruptura de abastecimiento",
+      "Flexibilidad en las negociaciones",
+      "Mayor seguridad en la trazabilidad",
+    ],
+    cta: "Ponerse en contacto",
+    note: "*Los valores pueden variar según disponibilidad y demanda.",
+    progress: [
+      {
+        label: "Bosque propio",
+        value: 50,
+        text: "50%",
+        fillClassName: "bg-emerald-400",
+        textClassName: "text-emerald-950",
+      },
+      { label: "Mercado interno", value: 70, text: "70%" },
+      { label: "Exportación", value: 30, text: "30%" },
+      { label: "Alta capacidad", value: 100, text: "5.000 m3/mes" },
+      { label: "Control de humedad", value: 100, text: "12% (+/- 2%)" },
+      { label: "Países atendidos", value: 100, text: "10+ países" },
+      { label: "Colaboradores", value: 100, text: "350+ personas" },
+      { label: "Meta 2025", value: 100, text: "300 m3/día" },
+    ] as ProgressItem[],
+  },
   "en-US": {
     kicker: "Our numbers",
     title: "Capacity and process control for reliable delivery",

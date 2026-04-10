@@ -19,11 +19,28 @@ const messages = {
       { title: "Caixas e embalagens", desc: "Soluções para transporte." },
     ],
   },
+  "es-ES": {
+    kicker: "Extraída con cuidado. Entregada con confianza.",
+    title: "Madera con propósito.",
+    description:
+      "Serraria Céu Azul actúa en el procesamiento de madera con una operación integrada, desde el corte y el secado hasta el producto final, garantizando consistencia, trazabilidad y responsabilidad ambiental en cada entrega.",
+    productsLabel: "Productos y servicios",
+    specs:
+      "Especificaciones: humedad controlada (12% +/- 2%) y estandarización dimensional.",
+    historyCta: "Nuestra Historia",
+    contactCta: "Ponerse en contacto",
+    products: [
+      { title: "Pallets", desc: "Exportación, one way y a medida." },
+      { title: "Madera aserrada", desc: "Estándar y calidad para aplicaciones." },
+      { title: "Astillas y aserrín", desc: "Aprovechamiento con eficiencia." },
+      { title: "Cajas y embalajes", desc: "Soluciones para transporte." },
+    ],
+  },
   "en-US": {
     kicker: "Carefully sourced. Reliably delivered.",
     title: "Wood with purpose.",
     description:
-      "Ceu Azul Sawmill operates with an integrated timber process - from cutting and drying to the final product - ensuring consistency, traceability, and environmental responsibility in every delivery.",
+      "Ceu Azul Sawmill operates with an integrated timber process, from cutting and drying to the final product, ensuring consistency, traceability, and environmental responsibility in every delivery.",
     productsLabel: "Products and services",
     specs:
       "Specifications: controlled moisture (12% +/- 2%) and dimensional standardization.",
@@ -49,11 +66,9 @@ export default function Main({ locale }: { locale: Locale }) {
 
   return (
     <section id="main" className="bg-AzulP relative lg:block">
-
       <div className="h-full">
         <article className="h-full flex gap-10 flex-col lg:flex-row">
           <div className="h-full bgMain1 mt-20 flex flex-col justify-center px-3 py-12 lg:px-0 lg:mt-28 lg:py-20 lg:pl-34 lg:w-1/2">
-
             <p className="font-Jost uppercase tracking-wider font-medium text-AzulC text-center lg:text-left">
               {content.kicker}
             </p>

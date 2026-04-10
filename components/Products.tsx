@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import {
   FaBoxesStacked,
   FaCouch,
@@ -87,6 +86,77 @@ const messages = {
           "Volumes fracionados ou a granel",
           "Umidade acompanhada para melhor uso",
           "Opção de retirada no pátio ou entrega",
+        ],
+      },
+    ],
+  },
+  "es-ES": {
+    kicker: "Productos y servicios",
+    title: "Aserradero enfocado en precisión y calidad de corte",
+    description:
+      "Desde el desdoblamiento hasta el acabado, entregamos madera aserrada, beneficiada y pallets para logística, construcción y carpintería. Control de humedad, repetitividad y seguimiento técnico para evitar retrabajos en obra o fábrica.",
+    quoteCta: "Solicitar presupuesto",
+    portfolioCta: "Ver portafolio",
+    badge: "A medida",
+    highlights: [
+      "Corte a medida con revisión de escuadrías",
+      "Secado, beneficiamiento y trazabilidad",
+      "Pino y eucalipto de origen controlado",
+      "Entrega programada y lotes repetitivos",
+    ],
+    items: [
+      {
+        title: "Pallets y embalajes",
+        desc: "Pallets para exportación, one way y a medida para logística e industria.",
+        points: [
+          "Estándares PBR, PBR ligero y medidas especiales",
+          "Madera seca y control de humedad para exportación",
+          "Refuerzos, tacos y travesaños según la carga",
+        ],
+      },
+      {
+        title: "Madera aserrada",
+        desc: "Tablas, cabrios, vigas y listones cortados con estándar constante.",
+        points: [
+          "Pino y eucalipto con trazabilidad",
+          "Escuadrías constantes y cortes repetitivos",
+          "Secado monitoreado para reducir deformaciones",
+        ],
+      },
+      {
+        title: "Maderas beneficiadas",
+        desc: "Cepillada, lijada o tratada para uso directo en obras y muebles.",
+        points: [
+          "Cepillada y aparejada con acabado fino",
+          "Tratamiento preventivo e impregnación",
+          "Piezas calibradas para montaje rápido",
+        ],
+      },
+      {
+        title: "Cabrios y vigas estructurales",
+        desc: "Componentes para cubiertas, galpones livianos y estructuras temporales.",
+        points: [
+          "Cálculos de corte para minimizar desperdicio",
+          "Escuadrías indicadas para carga y vano",
+          "Entrega en kit con identificación",
+        ],
+      },
+      {
+        title: "Componentes para muebles",
+        desc: "Listones, paneles encolados y piezas cortadas para producción de muebles.",
+        points: [
+          "Secado controlado para mayor estabilidad",
+          "Selección para encolado y mecanizado",
+          "Acabado listo para barniz o pintura",
+        ],
+      },
+      {
+        title: "Subproductos aprovechados",
+        desc: "Astillas y aserrín para biomasa, cama avícola y absorción.",
+        points: [
+          "Volúmenes fraccionados o a granel",
+          "Humedad controlada para mejor uso",
+          "Opción de retiro en patio o entrega",
         ],
       },
     ],
@@ -183,17 +253,6 @@ export default function Products({ locale }: { locale: Locale }) {
             {content.description}
           </p>
 
-          {/* <div className="grid mt-6 grid-cols-1 sm:grid-cols-2 gap-3">
-            {content.highlights.map((item) => (
-              <div
-                key={item}
-                className="rounded-lg border border-gray-100 bg-white p-4 shadow-sm"
-              >
-                <p className="font-Jost text-GrayP">{item}</p>
-              </div>
-            ))}
-          </div> */}
-
           <div className="flex mt-6 flex-col gap-4 sm:flex-row">
             <a
               className="uppercase tracking-wider font-Jost text-white bg-Orange hover:bg-hoverAzul hover:text-AzulP py-4 px-6 text-center"
@@ -201,12 +260,6 @@ export default function Products({ locale }: { locale: Locale }) {
             >
               {content.quoteCta}
             </a>
-            {/* <Link
-              className="uppercase tracking-wider font-Jost text-AzulP border border-AzulS hover:bg-AzulS hover:text-white py-4 px-6 text-center"
-              href="/portfolio"
-            >
-              {content.portfolioCta}
-            </Link> */}
           </div>
         </article>
 
@@ -223,12 +276,8 @@ export default function Products({ locale }: { locale: Locale }) {
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.22),_transparent_52%)]" />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.16),_transparent_45%)]" />
 
-
                   <div className="relative z-10 flex h-full items-center justify-between gap-4 px-6">
                     <div className="max-w-[70%]">
-                      {/* <p className="font-Jost text-xs uppercase tracking-[0.22em] text-white/75">
-                        {content.kicker}
-                      </p> */}
                       <p className="mt-2 font-Barlow text-2xl font-bold uppercase leading-tight text-white">
                         {product.title}
                       </p>

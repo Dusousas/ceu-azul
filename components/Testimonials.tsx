@@ -26,7 +26,6 @@ const messages = {
         name: "Eduardo Sousa",
         role: "Marcenaria Sousa - Itararé/SP",
         text: "A qualidade da madeira e o padrão de corte fazem diferença no nosso dia a dia. Entrega correta, material bem seco e ótimo acabamento.",
-        highlighted: false,
       },
       {
         id: 2,
@@ -40,7 +39,6 @@ const messages = {
         name: "João Pereira",
         role: "Fábrica de Móveis Pereira",
         text: "Trabalhamos com produção contínua e precisamos de constância. A Serraria Céu Azul entrega um padrão que facilita muito o processo.",
-        highlighted: false,
       },
       {
         id: 4,
@@ -61,7 +59,6 @@ const messages = {
         name: "Fernanda Rocha",
         role: "Indústria (uso de madeira e derivados)",
         text: "Além do material principal, o aproveitamento de cavaco e pó de serra ajuda muito na rotina. Empresa organizada e transparente.",
-        highlighted: false,
       },
       {
         id: 7,
@@ -75,7 +72,64 @@ const messages = {
         name: "Patrícia Souza",
         role: "Construtora - Obras comerciais",
         text: "O suporte no pedido e a flexibilidade nos cortes ajudaram bastante. Ficou fácil padronizar a compra para as obras.",
-        highlighted: false,
+      },
+    ] as Testimonial[],
+  },
+  "es-ES": {
+    kicker: "¿Qué dicen de nosotros?",
+    title: "Referencia para quienes exigen calidad",
+    items: [
+      {
+        id: 1,
+        name: "Eduardo Sousa",
+        role: "Carpintería Sousa - Itararé/SP",
+        text: "La calidad de la madera y el estándar de corte marcan la diferencia en nuestro día a día. Entrega correcta, material bien seco y excelente acabado.",
+      },
+      {
+        id: 2,
+        name: "Maria Silva",
+        role: "Constructora Silva - Obras residenciales",
+        text: "Atención rápida y madera con trazabilidad. Eso da seguridad a la obra y mantiene el cronograma sin imprevistos.",
+        highlighted: true,
+      },
+      {
+        id: 3,
+        name: "João Pereira",
+        role: "Fábrica de Muebles Pereira",
+        text: "Trabajamos con producción continua y necesitamos constancia. Serraria Céu Azul entrega un estándar que facilita mucho el proceso.",
+      },
+      {
+        id: 4,
+        name: "Ana Costa",
+        role: "Industria de Embalajes Costa",
+        text: "Los pallets a medida atendieron exactamente nuestra operación. Material firme, buen encaje y excelente costo-beneficio en volumen.",
+        highlighted: true,
+      },
+      {
+        id: 5,
+        name: "Carlos Lima",
+        role: "Logística y Almacenamiento - Pallet de Exportación",
+        text: "Necesitábamos pallets one way con estándar y agilidad. La negociación fue simple y la entrega llegó en plazo.",
+        highlighted: true,
+      },
+      {
+        id: 6,
+        name: "Fernanda Rocha",
+        role: "Industria (uso de madera y derivados)",
+        text: "Además del material principal, el aprovechamiento de astillas y aserrín ayuda mucho en la rutina. Empresa organizada y transparente.",
+      },
+      {
+        id: 7,
+        name: "Bruno Alves",
+        role: "Carpintería - Proyectos a medida",
+        text: "Madera bien seleccionada y con excelente estabilidad. Para muebles planificados, eso es esencial para evitar retrabajos.",
+        highlighted: true,
+      },
+      {
+        id: 8,
+        name: "Patrícia Souza",
+        role: "Constructora - Obras comerciales",
+        text: "El soporte en el pedido y la flexibilidad en los cortes ayudaron bastante. Fue fácil estandarizar la compra para las obras.",
       },
     ] as Testimonial[],
   },
@@ -88,7 +142,6 @@ const messages = {
         name: "Eduardo Sousa",
         role: "Sousa Woodshop - Itarare/SP",
         text: "The wood quality and cutting standard make a difference in our daily operation. Correct delivery, properly dried material, and a great finish.",
-        highlighted: false,
       },
       {
         id: 2,
@@ -102,7 +155,6 @@ const messages = {
         name: "Joao Pereira",
         role: "Pereira Furniture Factory",
         text: "We work with continuous production and need consistency. Ceu Azul Sawmill delivers a standard that makes the whole process easier.",
-        highlighted: false,
       },
       {
         id: 4,
@@ -123,7 +175,6 @@ const messages = {
         name: "Fernanda Rocha",
         role: "Industry (wood and by-product use)",
         text: "Beyond the main material, the reuse of wood chips and sawdust helps a lot in our routine. A well-organized and transparent company.",
-        highlighted: false,
       },
       {
         id: 7,
@@ -137,7 +188,6 @@ const messages = {
         name: "Patricia Souza",
         role: "Construction company - Commercial projects",
         text: "The order support and flexibility in cuts helped a lot. It became easy to standardize purchasing for our projects.",
-        highlighted: false,
       },
     ] as Testimonial[],
   },

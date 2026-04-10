@@ -10,6 +10,14 @@ const messages = {
     message: "Sua mensagem",
     submit: "Enviar",
   },
+  "es-ES": {
+    name: "Su nombre",
+    company: "Su empresa",
+    email: "Su correo electrónico",
+    subject: "Asunto",
+    message: "Su mensaje",
+    submit: "Enviar",
+  },
   "en-US": {
     name: "Your name",
     company: "Your company",
@@ -59,12 +67,7 @@ export default function Form({ locale }: { locale: Locale }) {
         <label className="font-Jost" htmlFor="message">
           {content.message}
         </label>
-        <textarea
-          className="w-full bg-white p-2 resize-none "
-          rows={4}
-          name="message"
-          id="message"
-        />
+        <textarea className="w-full bg-white p-2 resize-none " rows={4} name="message" id="message" />
       </div>
 
       <div className="flex mt-6">

@@ -78,6 +78,62 @@ const messages = {
       },
     ] as Card[],
   },
+  "es-ES": {
+    kicker: "Extraída con cuidado. Entregada con confianza.",
+    title: "Tradición, tecnología y responsabilidad en el procesamiento de madera",
+    description:
+      "Serraria Céu Azul une la fuerza de la tradición familiar a la eficiencia de una operación moderna e integrada, entregando madera con consistencia, trazabilidad y responsabilidad ambiental para atender mercados exigentes en Brasil y en el exterior.",
+    historyCta: "Conozca nuestra historia",
+    missionKicker: "Misión, Visión y Valores",
+    missionTitle: "Compromiso con calidad, ética y sostenibilidad",
+    missionDescription:
+      "Nuestra actuación está guiada por integridad, transparencia y eficiencia operativa. Trabajamos con origen controlado, estandarización y control de calidad para entregar productos consistentes, con responsabilidad ambiental en cada etapa.",
+    missionCta: "Nuestra misión",
+    missionAlt: "Sostenibilidad y producción responsable",
+    stats: [
+      { value: "30+", label: "Años de experiencia del grupo" },
+      { value: "350+", label: "Colaboradores" },
+      { value: "10+", label: "Países atendidos" },
+    ],
+    cards: [
+      {
+        icon: FaBoxesStacked,
+        title: "Madera para Pallets",
+        text: "Soluciones en madera para pallets con estándar técnico y producción bajo demanda.",
+        topics: [
+          "Tipos y dimensiones (estándar y a medida)",
+          "Especificaciones técnicas según la aplicación",
+          "Estandarización para logística e industria",
+        ],
+      },
+      {
+        icon: FaTree,
+        title: "Maderas Brutas y Beneficiadas",
+        text: "Variedad de especies y opciones de acabado para diferentes usos.",
+        topics: [
+          "Pino, eucalipto y otras opciones",
+          "Bruta, beneficiada, cepillada o tratada",
+          "Aplicaciones y acabados según la necesidad",
+        ],
+      },
+      {
+        icon: FaWarehouse,
+        title: "Madera Aserrada para Construcción",
+        text: "Línea destinada a la construcción civil para mercado interno y externo.",
+        topics: [
+          "Cortes y escuadrías para construcción",
+          "Estándares para mercado interno y exportación",
+          "Selección y control de calidad",
+        ],
+      },
+      {
+        icon: FaLeaf,
+        title: "Otros Productos",
+        text: "Aprovechamiento de residuos con aplicaciones industriales y energéticas.",
+        topics: ["Astillas", "Aserrín", "Biomasa (cuando esté disponible)"],
+      },
+    ] as Card[],
+  },
   "en-US": {
     kicker: "Carefully sourced. Reliably delivered.",
     title: "Tradition, technology, and responsibility in wood processing",
@@ -87,7 +143,7 @@ const messages = {
     missionKicker: "Mission, Vision, and Values",
     missionTitle: "A commitment to quality, ethics, and sustainability",
     missionDescription:
-      "Our work is guided by integrity, transparency, and operational efficiency. We operate with controlled origin, standardization, and quality control to deliver consistent products - with environmental responsibility at every stage.",
+      "Our work is guided by integrity, transparency, and operational efficiency. We operate with controlled origin, standardization, and quality control to deliver consistent products, with environmental responsibility at every stage.",
     missionCta: "Our mission",
     missionAlt: "Sustainability and responsible production",
     stats: [

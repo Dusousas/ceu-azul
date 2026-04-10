@@ -30,28 +30,51 @@ export default function Footer() {
             "Florestas privadas no estado de São Paulo",
           ],
         }
-      : {
-          brandTitle: "Ceu Azul",
-          brandDescription:
-            "Timber with consistency, operational reliability, and environmental responsibility.",
-          rights: "All rights reserved.",
-          contactTitle: "Quick contact",
-          structureTitle: "Structure",
-          contactItems: [
-            "WhatsApp: +55 47 99731-6610",
-            "Email: jonatan.souza@elopack.ind.br",
-            "Phone: (14) 3656-3014",
-          ],
-          structureItems: [
-            "Office in São Paulo, SP",
-            "Office in Torrinha, SP",
-            "Distribution Center in Limeira, SP",
-            "1 wood processing plant in the state of Paraná",
-            "1 pet food plant in Limeira, SP",
-            "4 Elopack plants located in Itararé (BA), Salto (SP), Torrinha (SP), and (SP)",
-            "Private forests in the state of São Paulo",
-          ],
-        };
+      : locale === "es-ES"
+        ? {
+            brandTitle: "Céu Azul",
+            brandDescription:
+              "Madera con consistencia, confianza operativa y responsabilidad ambiental.",
+            rights: "Todos los derechos reservados.",
+            contactTitle: "Contacto rápido",
+            structureTitle: "Estructura",
+            contactItems: [
+              "WhatsApp: +55 47 99731-6610",
+              "Email: jonatan.souza@elopack.ind.br",
+              "Teléfono: (14) 3656-3014",
+            ],
+            structureItems: [
+              "Oficina en São Paulo, SP",
+              "Oficina en Torrinha, SP",
+              "Centro de Distribución en Limeira, SP",
+              "1 Fábrica de procesamiento de madera en el estado de Paraná",
+              "1 Fábrica Pet food en Limeira, SP",
+              "4 Fábricas Elopack ubicadas en Itararé (BA), Salto (SP), Torrinha (SP) y (SP)",
+              "Bosques privados en el estado de São Paulo",
+            ],
+          }
+        : {
+            brandTitle: "Ceu Azul",
+            brandDescription:
+              "Timber with consistency, operational reliability, and environmental responsibility.",
+            rights: "All rights reserved.",
+            contactTitle: "Quick contact",
+            structureTitle: "Structure",
+            contactItems: [
+              "WhatsApp: +55 47 99731-6610",
+              "Email: jonatan.souza@elopack.ind.br",
+              "Phone: (14) 3656-3014",
+            ],
+            structureItems: [
+              "Office in São Paulo, SP",
+              "Office in Torrinha, SP",
+              "Distribution Center in Limeira, SP",
+              "1 wood processing plant in the state of Paraná",
+              "1 pet food plant in Limeira, SP",
+              "4 Elopack plants located in Itararé (BA), Salto (SP), Torrinha (SP), and (SP)",
+              "Private forests in the state of São Paulo",
+            ],
+          };
 
   return (
     <footer className="bg-AzulS py-8">
@@ -72,10 +95,7 @@ export default function Footer() {
             </p>
             <ul className="mt-3 space-y-2">
               {content.contactItems.map((item) => (
-                <li
-                  key={item}
-                  className="font-Jost text-white/80 text-sm leading-relaxed"
-                >
+                <li key={item} className="font-Jost text-white/80 text-sm leading-relaxed">
                   {item}
                 </li>
               ))}
@@ -88,10 +108,7 @@ export default function Footer() {
             </p>
             <ul className="mt-3 space-y-1">
               {content.structureItems.map((item) => (
-                <li
-                  key={item}
-                  className="font-Jost text-white/80 text-sm leading-relaxed"
-                >
+                <li key={item} className="font-Jost text-white/80 text-sm leading-relaxed">
                   {item}
                 </li>
               ))}
